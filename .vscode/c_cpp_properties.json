@@ -1,0 +1,27 @@
+{
+    "configurations": [
+        {
+            "name": "Win32",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "${workspaceFolder}/vendor/easyloggingpp/src",
+                "${workspaceFolder}/Eucalyptus/src",
+                "${workspaceFolder}/vendor/glad/include",
+                "${workspaceFolder}/vendor/easyloggingpp/src",
+                "${workspaceFolder}/vendor/stb",
+                "${workspaceFolder}/vendor/glm"
+            ],
+            "defines": [
+                "_DEBUG",
+                "UNICODE",
+                "_UNICODE"
+            ],
+            "windowsSdkVersion": "10.0.22621.0",
+            "cStandard": "c17",
+            "cppStandard": "c++17",
+            "intelliSenseMode": "gcc-x64",
+            "configurationProvider": "ms-vscode.cmake-tools"
+        }
+    ],
+    "version": 4
+}

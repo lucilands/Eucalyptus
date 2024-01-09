@@ -1,0 +1,6 @@
+# Build folders
+build
+ignored
+
+**.log
+**.conf
