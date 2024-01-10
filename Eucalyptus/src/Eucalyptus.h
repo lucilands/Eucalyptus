@@ -4,6 +4,8 @@
 
 #include "math/vector.h"
 
+#include "audio/audio.h"
+
 #include "window/window.h"
 
 #include "graphics/mesh.h"

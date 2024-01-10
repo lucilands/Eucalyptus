@@ -9,6 +9,7 @@ add_library(Eucalyptus SHARED
                 ${EUCDIR}/color/color.cpp
                 ${EUCDIR}/error/error.cpp
                 ${EUCDIR}/light/light.cpp
+                ${EUCDIR}/audio/audio.cpp
                 ${EUCDIR}/shader/shader.cpp
                 ${EUCDIR}/graphics/mesh.cpp
                 ${EUCDIR}/window/window.cpp
@@ -28,6 +29,7 @@ target_include_directories(Eucalyptus PUBLIC "vendor/glm/")
 target_include_directories(Eucalyptus PUBLIC Eucalyptus/src)
 
 target_link_directories(Eucalyptus PUBLIC "vendor/GLFW/lib/static")
-target_link_libraries(Eucalyptus PUBLIC "opengl32.lib" "glfw3.lib")
+target_link_libraries(Eucalyptus PUBLIC "opengl32.lib" "glfw3.lib" "winmm")
+
 
 target_compile_definitions(Eucalyptus PUBLIC _EUCDLL)
