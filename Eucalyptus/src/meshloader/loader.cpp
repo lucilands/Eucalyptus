@@ -112,8 +112,8 @@ namespace Eucalyptus {
             idxs[i] = indices.at(i);
         }
 
-        _internalLogger()->info("Loaded mesh from file");
-        _internalLogger()->info(_SIZEOFARRAY(idxs));
+        _EUC_LOG_INFO("Loaded mesh from file");
+        _EUC_LOG_INFO(_SIZEOFARRAY(idxs));
 
         Mesh out(verts, _SIZEOFARRAY(verts), idxs, _SIZEOFARRAY(idxs));
         out.SetTextureCoordinates(texcoords, _SIZEOFARRAY(texcoords));
@@ -150,7 +150,7 @@ namespace Eucalyptus {
         else {
             std::stringstream ss;
             ss << "Could not open mtl file: " << path;
-            _internalLogger()->error(ss.str());
+            _EUC_LOG_ERR(ss.str());
         }
         
         return out;
