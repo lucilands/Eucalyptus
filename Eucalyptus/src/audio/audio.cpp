@@ -27,6 +27,15 @@ namespace Eucalyptus {
         PlaySound((LPCSTR)buffer, NULL, flags);
     }
 }
+#elif EUCALYPTUS_PLATFORM_LINUX
+namespace Eucalyptus {
+    AudioClip::AudioClip(const char *path) {
+        
+    }
+    void AudioClip::play(bool loop, bool async) {
+        
+    }
+}
 #else
-#warning Eucalyptus sound only supports Windows
+#warning Eucalyptus sound does not support MacOS
 #endif

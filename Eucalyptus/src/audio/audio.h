@@ -3,7 +3,7 @@
 #include "api.h"
 
 
-#define EUC_AUDIO_BUFFER_CAPACITY 1024
+typedef unsigned char BYTE;
 
 // Platform specific imports
 #ifdef EUCALYPTUS_PLATFORM_WINDOWS
