@@ -14,7 +14,7 @@ namespace Eucalyptus {
     class _EUCAPI AudioClip {
     public:
         AudioClip(const char *path);
-        void play(bool loop = true, bool async = true);
+        void play(bool loop = false, bool async = true);
     private:
         BYTE* buffer;
     };
