@@ -9,7 +9,6 @@ add_library(Eucalyptus SHARED
                 ${EUCDIR}/color/color.cpp
                 ${EUCDIR}/error/error.cpp
                 ${EUCDIR}/light/light.cpp
-                ${EUCDIR}/math/matrix.cpp
                 ${EUCDIR}/shader/shader.cpp
                 ${EUCDIR}/graphics/mesh.cpp
                 ${EUCDIR}/window/window.cpp

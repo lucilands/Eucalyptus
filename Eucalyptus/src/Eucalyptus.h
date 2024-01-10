@@ -3,7 +3,6 @@
 #include "shader/shader.h"
 
 #include "math/vector.h"
-#include "math/matrix.h"
 
 #include "window/window.h"
 
