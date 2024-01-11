@@ -6,7 +6,6 @@
 #include <string>
 #include <sstream>
 #include <fstream>
-#include <experimental/filesystem>
 
 
 #define _SIZEOFARRAY(arr) sizeof(arr) / sizeof(arr[0])
@@ -42,10 +41,7 @@ namespace Eucalyptus {
 
     Mesh _EUCAPI LoadMeshFromOBJ(const char *path)
     {
-        namespace fs = std::experimental::filesystem;
-        std::stringstream p;
-        p << path;
-        std::ifstream obj_file(p.str().c_str());
+        std::ifstream obj_file(path);
 
         std::vector<Math::Vector3f> vertices;
         std::vector<Math::Vector3f> normals;
@@ -80,7 +76,7 @@ namespace Eucalyptus {
                         normals.push_back(Math::Vector3f(std::stof(_line[1]), std::stof(_line[2]), std::stof(_line[3])));
                     }
                     if (_line.at(0) == "mtllib") {
-                        std::string s_path = p.str();
+                        std::string s_path = path;
                         std::vector<std::string> path_split = split_cstr_by_delim(s_path, '/');
                         path_split.pop_back();
 
@@ -97,7 +93,7 @@ namespace Eucalyptus {
         }
         else {
             std::stringstream e;
-            e << "Could not open mesh file: " << p.str() << " " << strerror(errno);
+            e << "Could not open mesh file: " << path << " " << strerror(errno);
             _EUC_LOG_ERR(e.str());
             return Mesh {0};
         }
@@ -123,7 +119,6 @@ namespace Eucalyptus {
         }
 
         _EUC_LOG_INFO("Loaded mesh from file");
-        _EUC_LOG_INFO(_SIZEOFARRAY(idxs));
 
         Mesh out(verts, _SIZEOFARRAY(verts), idxs, _SIZEOFARRAY(idxs));
         out.SetTextureCoordinates(texcoords, _SIZEOFARRAY(texcoords));
