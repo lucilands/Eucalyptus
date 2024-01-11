@@ -14,6 +14,7 @@ namespace Eucalyptus {
 
         buffer = new BYTE[lim];
         f.seekg(0, std::ios::beg);
+        m_bufsize = lim;
 
         f.read((char *)buffer, lim);
 
@@ -27,15 +28,20 @@ namespace Eucalyptus {
         PlaySound((LPCSTR)buffer, NULL, flags);
     }
 }
-#elif EUCALYPTUS_PLATFORM_LINUX
+
+#else
+#warning Eucalyptus sound only supports Windows
+#endif
+
+// TEMP
+#ifdef EUCALYPTUS_PLATFORM_LINUX
 namespace Eucalyptus {
     AudioClip::AudioClip(const char *path) {
-        
+        (void)path;
     }
     void AudioClip::play(bool loop, bool async) {
-        
+        (void)loop; 
+        (void)async;
     }
 }
-#else
-#warning Eucalyptus sound does not support MacOS
 #endif

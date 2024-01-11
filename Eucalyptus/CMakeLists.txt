@@ -37,7 +37,7 @@ endif (WIN32)
 
 if (UNIX)
     target_link_directories(Eucalyptus PUBLIC "vendor/GLFW/lib/linux")
-    target_link_libraries(Eucalyptus PUBLIC "X11" "glfw3" "GL" "pthread")
+    target_link_libraries(Eucalyptus PUBLIC "X11" "glfw3" "GL" "pthread" "stdc++fs")
 endif(UNIX)
 
 target_compile_definitions(Eucalyptus PUBLIC _EUCDLL)

@@ -10,7 +10,7 @@ int main(){
     window.InitWindow();
 
     //Eucalyptus::Shader shader = Eucalyptus::Shader::LoadFromFile(".\\shaders\\vertex.vs", ".\\shaders\\fragment.fs");
-    Eucalyptus::Mesh tree = Eucalyptus::LoadMeshFromOBJ(".\\models\\tree-tex.obj");
+    Eucalyptus::Mesh tree = Eucalyptus::LoadMeshFromOBJ("models/tree-tex.obj");
 
     Eucalyptus::AudioClip audio("sound/Juhani Junkala [Retro Game Music Pack] Level 1.wav");
 
@@ -24,7 +24,7 @@ int main(){
         window.Clear();
 
 
-        renderer.transform.Rotate(0.01f, {0.0f, 1.0f, 0.0f});
+        renderer.transform.Rotate(1.0f, {0.0f, 1.0f, 0.0f});
         renderer.Render(window);
 
         window.Flip();

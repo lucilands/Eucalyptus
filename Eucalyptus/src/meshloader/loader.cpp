@@ -6,6 +6,7 @@
 #include <string>
 #include <sstream>
 #include <fstream>
+#include <experimental/filesystem>
 
 
 #define _SIZEOFARRAY(arr) sizeof(arr) / sizeof(arr[0])
@@ -41,7 +42,10 @@ namespace Eucalyptus {
 
     Mesh _EUCAPI LoadMeshFromOBJ(const char *path)
     {
-        std::ifstream obj_file(path);
+        namespace fs = std::experimental::filesystem;
+        std::stringstream p;
+        p << path;
+        std::ifstream obj_file(p.str().c_str());
 
         std::vector<Math::Vector3f> vertices;
         std::vector<Math::Vector3f> normals;
@@ -76,13 +80,13 @@ namespace Eucalyptus {
                         normals.push_back(Math::Vector3f(std::stof(_line[1]), std::stof(_line[2]), std::stof(_line[3])));
                     }
                     if (_line.at(0) == "mtllib") {
-                        std::string s_path = path;
-                        std::vector<std::string> path_split = split_cstr_by_delim(s_path, '\\');
+                        std::string s_path = p.str();
+                        std::vector<std::string> path_split = split_cstr_by_delim(s_path, '/');
                         path_split.pop_back();
 
                         std::stringstream ss;
                         for (size_t i = 0; i < path_split.size(); i++) {
-                            ss << path_split.at(i) << "\\";
+                            ss << path_split.at(i) << "/";
                         }
                         ss << _line.at(1);
 
@@ -90,6 +94,12 @@ namespace Eucalyptus {
                     }
                 }
             }
+        }
+        else {
+            std::stringstream e;
+            e << "Could not open mesh file: " << p.str() << " " << strerror(errno);
+            _EUC_LOG_ERR(e.str());
+            return Mesh {0};
         }
 
         Math::Vector3f verts[vertices.size()];
@@ -149,7 +159,7 @@ namespace Eucalyptus {
         }
         else {
             std::stringstream ss;
-            ss << "Could not open mtl file: " << path;
+            ss << "Could not open mtl file: " << path << " " << strerror(errno);
             _EUC_LOG_ERR(ss.str());
         }
         

@@ -17,10 +17,16 @@ set(CMAKE_CXX_EXTENSIONS OFF)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 
-include(Eucalyptus/CmakeLists.txt)
+include(Eucalyptus/CMakeLists.txt)
 add_subdirectory(sandbox)
 
+if(WIN32)
 target_compile_definitions(Eucalyptus PUBLIC EUCALYPTUS_PLATFORM_WINDOWS)
+endif(WIN32)
+if(UNIX)
+target_compile_definitions(Eucalyptus PUBLIC EUCALYPTUS_PLATFORM_LINUX)
+endif(UNIX)
+
 target_compile_definitions(Eucalyptus PUBLIC EUCALYPTUS_ENABLE_LOGGING)
 
 
