@@ -10,7 +10,7 @@ int main(){
     window.InitWindow();
 
     //Eucalyptus::Shader shader = Eucalyptus::Shader::LoadFromFile(".\\shaders\\vertex.vs", ".\\shaders\\fragment.fs");
-    Eucalyptus::Mesh tree = Eucalyptus::LoadMeshFromOBJ("models\\tree-tex.obj");
+    Eucalyptus::Mesh tree = Eucalyptus::LoadMeshFromOBJ(".\\models\\tree-tex.obj");
 
     Eucalyptus::AudioClip audio("sound/Juhani Junkala [Retro Game Music Pack] Level 1.wav");
 

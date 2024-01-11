@@ -120,11 +120,10 @@ namespace Eucalyptus{
         _EUCINIT = true;
     }
     void _EUCAPI Terminate(){
-        glfwTerminate();
-        free(Shader::Empty);
         for (Shader* s : shaders.get_list()) {
             s->Delete();
             free(s);
         }
+        glfwTerminate();
     }
 }
