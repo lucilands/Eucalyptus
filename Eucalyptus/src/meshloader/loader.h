@@ -11,5 +11,5 @@ namespace Eucalyptus {
     std::vector<std::string> split_cstr_by_delim(std::string& s, char delim);
 
     Mesh _EUCAPI LoadMeshFromOBJ(const char* path);
-    Material LoadMaterialFromMTLFile(const char* path);
+    Material _EUCAPI LoadMaterialFromMTLFile(const char* path);
 }

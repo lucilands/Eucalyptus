@@ -132,7 +132,7 @@ namespace Eucalyptus {
 
         return out;
     }
-    Material LoadMaterialFromMTLFile(const char *path)
+    Material _EUCAPI LoadMaterialFromMTLFile(const char *path)
     {   
         Material out;
         std::ifstream in(path);
