@@ -19,7 +19,7 @@ int main(){
     renderer.transform.Scale({0.4f, 0.4f, 0.4f});
     renderer.transform.Translate({0.0f, -2.0f, 0.0f});
 
-    audio.play();
+    audio.play(true);
     while (window.IsOpen()){
         window.Clear();
 
