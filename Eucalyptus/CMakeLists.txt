@@ -25,7 +25,6 @@ add_library(Eucalyptus SHARED
 
 target_include_directories(Eucalyptus PUBLIC "vendor/GLFW/include/")
 target_include_directories(Eucalyptus PUBLIC "vendor/glad/include/")
-target_include_directories(Eucalyptus PUBLIC "vendor/easyloggingpp/src/")
 target_include_directories(Eucalyptus PUBLIC "vendor/stb/")
 target_include_directories(Eucalyptus PUBLIC "vendor/glm/")
 target_include_directories(Eucalyptus PUBLIC Eucalyptus/src)
