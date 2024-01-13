@@ -4,7 +4,9 @@
 #include "shader/shader.h"
 #include "graphics/mesh.h"
 
-#include "internal.h"
+#include "log/logger.h"
+
+#include "globals.h"
 
 bool _GLINIT = false;
 bool _EUCINIT = false;
@@ -22,7 +24,7 @@ namespace Eucalyptus{
 
     Window::Window(Math::Vector2i size, const char* name) : m_size(size), m_name(name), m_config(WindowConfig()){
         if (!_EUCINIT){
-            _EUC_LOG_FATAL(EUCInitError("Eucalyptus is not initialized yet"));
+            _EUC_LOG_FATAL(EUCInitError("Eucalyptus is not initialized yet").ToString());
             Terminate();
             exit(1);
         }
@@ -75,7 +77,7 @@ namespace Eucalyptus{
         glfwMakeContextCurrent(m_window);
 
         if (m_window == NULL){
-            _EUC_LOG_FATAL((GLFWWindowError("Failed to initialize window")));
+            _EUC_LOG_FATAL((GLFWWindowError("Failed to initialize window").ToString()));
             Terminate();
             exit(1);
         }
@@ -83,7 +85,7 @@ namespace Eucalyptus{
 
         _EUC_LOG_INFO("Initializing glad");
         if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)){
-            _EUC_LOG_FATAL(GLADInitError("Failed to initialize GLAD"));
+            _EUC_LOG_FATAL(GLADInitError("Failed to initialize GLAD").ToString());
             Terminate();
             exit(1);
         }
@@ -106,10 +108,9 @@ namespace Eucalyptus{
     }
 
     void Init(){
-        Eucalyptus::InitLoggers();
         _EUC_LOG_INFO("Initializing GLFW");
         if (glfwInit() == GLFW_FALSE){
-            _EUC_LOG_FATAL((GLFWInitError("Failed to initialize GLFW")));
+            _EUC_LOG_FATAL((GLFWInitError("Failed to initialize GLFW").ToString()));
             Terminate();
             exit(1);
         }

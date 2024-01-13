@@ -5,7 +5,7 @@ set(EUCDIR Eucalyptus/src)
 set(VENDOR ../vendor)
 
 add_library(Eucalyptus SHARED   
-                ${EUCDIR}/internal.cpp
+                ${EUCDIR}/log/logger.cpp
                 ${VENDOR}/glad/src/glad.c
                 ${EUCDIR}/color/color.cpp
                 ${EUCDIR}/error/error.cpp
@@ -20,7 +20,8 @@ add_library(Eucalyptus SHARED
                 ${EUCDIR}/graphics/material.cpp
                 ${EUCDIR}/meshloader/loader.cpp
                 ${EUCDIR}/window/windowConfig.cpp
-                ${VENDOR}/easyloggingpp/src/easylogging++.cc)
+                #${VENDOR}/easyloggingpp/src/easylogging++.cc
+)
 
 target_include_directories(Eucalyptus PUBLIC "vendor/GLFW/include/")
 target_include_directories(Eucalyptus PUBLIC "vendor/glad/include/")

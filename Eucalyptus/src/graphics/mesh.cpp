@@ -1,6 +1,6 @@
 #include "mesh.h"
 
-#include "internal.h"
+#include "log/logger.h"
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>

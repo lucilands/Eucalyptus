@@ -1,11 +1,12 @@
 #include "loader.h"
 #include "graphics/texture.h"
-#include "internal.h"
+#include "log/logger.h"
 
 
 #include <string>
 #include <sstream>
 #include <fstream>
+#include <cstring>
 
 
 #define _SIZEOFARRAY(arr) sizeof(arr) / sizeof(arr[0])
@@ -93,8 +94,8 @@ namespace Eucalyptus {
         }
         else {
             std::stringstream e;
-            e << "Could not open mesh file: " << path << " " << strerror(errno);
-            _EUC_LOG_ERR(e.str());
+            e << "Could not open mesh file: " << path << " " << std::strerror(errno);
+            _EUC_LOG_ERR(e.str().c_str());
             return Mesh {0};
         }
 
@@ -155,7 +156,7 @@ namespace Eucalyptus {
         else {
             std::stringstream ss;
             ss << "Could not open mtl file: " << path << " " << strerror(errno);
-            _EUC_LOG_ERR(ss.str());
+            _EUC_LOG_ERR(ss.str().c_str());
         }
         
         return out;
