@@ -38,13 +38,14 @@ std::string euc_fmt(const char *c, ...) {
         }
         c++;
     }
+    va_end(lst);
     return outss.str();
 }
 std::string euc_fmt(std::string c1, ...) {
     std::stringstream outss;
     const char *c = c1.c_str();
     va_list lst;
-    va_start(lst, c);
+    va_start(lst, c1);
     while(*c != '\0') {
         if(*c != '%') {
             outss << *c << '\a';
@@ -66,6 +67,7 @@ std::string euc_fmt(std::string c1, ...) {
         }
         c++;
     }
+    va_end(lst);
     return outss.str();
 }
 #endif
