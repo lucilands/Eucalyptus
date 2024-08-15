@@ -8,6 +8,7 @@
 #include "window/window.h"
 
 #include <fstream>
+#include <sstream>
 #include <string>
 #include <ios>
 
@@ -29,7 +30,7 @@ namespace Eucalyptus {
     Shader::Shader(const char* vertexSRC, const char* fragmentSRC) : vertexSource(vertexSRC), fragmentSource(fragmentSRC) {
         shaders.push_back(this);
         if (!_GLINIT){
-            _EUC_LOG_ERR(EUCInitError("Cannot create shader because: Eucalyptus window is not initialized yet").ToString());
+            _EUC_LOG_ERR(EUCInitError("Cannot create shader because: Eucalyptus window is not initialized yet").ToString().c_str());
             _EUC_LOG_INFO("Aborting shader creation");
             return;
         }
@@ -64,7 +65,7 @@ namespace Eucalyptus {
 
         if (!vCompileStatus) {
             glGetShaderInfoLog(vShader, 512, NULL, vCompileErrMSG);
-            _EUC_LOG_ERR(ShaderCompileError("Could not compile vertex shader because:\n" + (std::string)vCompileErrMSG).ToString());
+            _EUC_LOG_ERR(ShaderCompileError("Could not compile vertex shader because:\n" + (std::string)vCompileErrMSG).ToString().c_str());
             _EUC_LOG_INFO("Aborting shader creation");
 
             glDeleteShader(vShader);
@@ -75,7 +76,7 @@ namespace Eucalyptus {
 
         if (!fCompileStatus) {
             glGetShaderInfoLog(fShader, 512, NULL, fCompileErrMSG);
-            _EUC_LOG_ERR(ShaderCompileError("Could not compile fragment shader because:\n" + (std::string)fCompileErrMSG).ToString());
+            _EUC_LOG_ERR(ShaderCompileError("Could not compile fragment shader because:\n" + (std::string)fCompileErrMSG).ToString().c_str());
             _EUC_LOG_INFO("Aborting shader creation");
 
             glDeleteShader(vShader);
@@ -95,7 +96,7 @@ namespace Eucalyptus {
         glGetProgramiv(m_ID, GL_LINK_STATUS, &shaderLinkStatus);
         if (!shaderLinkStatus) {
             glGetProgramInfoLog(m_ID, 512, NULL, shaderLinkErrMSG);
-            _EUC_LOG_ERR(ShaderLinkError("Could not link shader program because:\n" + (std::string)shaderLinkErrMSG).ToString());
+            _EUC_LOG_ERR(ShaderLinkError("Could not link shader program because:\n" + (std::string)shaderLinkErrMSG).ToString().c_str());
             _EUC_LOG_INFO("Aborting shader creation");
 
             glDeleteShader(vShader);
@@ -225,7 +226,7 @@ namespace Eucalyptus {
         for (Shader* s : m_list) {
             std::stringstream ss;
             ss << "Recompiling shader: " << s->fragPath << ", " << s->vertexPath;
-            _EUC_LOG_INFO(ss.str());
+            _EUC_LOG_INFO(ss.str().c_str());
             
             *s = Shader::LoadFromFile(s->vertexPath.c_str(), s->fragPath.c_str());
         }

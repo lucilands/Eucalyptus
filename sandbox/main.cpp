@@ -24,12 +24,12 @@ int main(){
         window.Clear();
 
 
-        renderer.transform.Rotate(0.05f, {0.0f, 1.0f, 0.0f});
+        renderer.transform.Rotate(1.0f, {0.0f, 1.0f, 0.0f});
         renderer.Render(window);
 
         window.Flip();
     }
 
     Eucalyptus::Terminate();
-    return 0;   
+    return 0;
 }

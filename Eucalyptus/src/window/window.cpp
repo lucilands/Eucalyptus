@@ -24,7 +24,7 @@ namespace Eucalyptus{
 
     Window::Window(Math::Vector2i size, const char* name) : m_size(size), m_name(name), m_config(WindowConfig()){
         if (!_EUCINIT){
-            _EUC_LOG_FATAL(EUCInitError("Eucalyptus is not initialized yet").ToString());
+            _EUC_LOG_FATAL(EUCInitError("Eucalyptus is not initialized yet").ToString().c_str());
             Terminate();
             exit(1);
         }
@@ -77,7 +77,7 @@ namespace Eucalyptus{
         glfwMakeContextCurrent(m_window);
 
         if (m_window == NULL){
-            _EUC_LOG_FATAL((GLFWWindowError("Failed to initialize window").ToString()));
+            _EUC_LOG_FATAL((GLFWWindowError("Failed to initialize window").ToString().c_str()));
             Terminate();
             exit(1);
         }
@@ -85,7 +85,7 @@ namespace Eucalyptus{
 
         _EUC_LOG_INFO("Initializing glad");
         if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)){
-            _EUC_LOG_FATAL(GLADInitError("Failed to initialize GLAD").ToString());
+            _EUC_LOG_FATAL(GLADInitError("Failed to initialize GLAD").ToString().c_str());
             Terminate();
             exit(1);
         }
@@ -110,7 +110,7 @@ namespace Eucalyptus{
     void Init(){
         _EUC_LOG_INFO("Initializing GLFW");
         if (glfwInit() == GLFW_FALSE){
-            _EUC_LOG_FATAL((GLFWInitError("Failed to initialize GLFW").ToString()));
+            _EUC_LOG_FATAL((GLFWInitError("Failed to initialize GLFW").ToString().c_str()));
             Terminate();
             exit(1);
         }

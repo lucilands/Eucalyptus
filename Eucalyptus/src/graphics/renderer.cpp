@@ -15,7 +15,7 @@
 namespace Eucalyptus {
     MeshRenderer::MeshRenderer(Mesh _mesh, Shader _shader, Color _color, Texture _texture): mesh(_mesh), shader(_shader) {
         if (!_GLINIT){
-            _EUC_LOG_ERR(EUCInitError("Cannot create MeshRenderer because: Eucalyptus window is not initialized yet").ToString());
+            _EUC_LOG_ERR(EUCInitError("Cannot create MeshRenderer because: Eucalyptus window is not initialized yet").ToString().c_str());
             _EUC_LOG_INFO("Aborting shader creation");
             return;
         }
@@ -28,7 +28,7 @@ namespace Eucalyptus {
     }
     MeshRenderer::MeshRenderer(Mesh _mesh, Shader _shader, Color _color): mesh(_mesh), shader(_shader) {
         if (!_GLINIT){
-            _EUC_LOG_ERR(EUCInitError("Cannot create MeshRenderer because: Eucalyptus window is not initialized yet").ToString());
+            _EUC_LOG_ERR(EUCInitError("Cannot create MeshRenderer because: Eucalyptus window is not initialized yet").ToString().c_str());
             _EUC_LOG_INFO("Aborting shader creation");
             return;
         }
@@ -40,7 +40,7 @@ namespace Eucalyptus {
     }
     MeshRenderer::MeshRenderer(Mesh _mesh, Shader _shader, Texture _texture): mesh(_mesh), shader(_shader) {
         if (!_GLINIT){
-            _EUC_LOG_ERR(EUCInitError("Cannot create MeshRenderer because: Eucalyptus window is not initialized yet").ToString());
+            _EUC_LOG_ERR(EUCInitError("Cannot create MeshRenderer because: Eucalyptus window is not initialized yet").ToString().c_str());
             _EUC_LOG_INFO("Aborting shader creation");
             return;
         }
@@ -52,7 +52,7 @@ namespace Eucalyptus {
     }
     MeshRenderer::MeshRenderer(Mesh _mesh, Shader _shader): mesh(_mesh), shader(_shader) {
         if (!_GLINIT){
-            _EUC_LOG_ERR(EUCInitError("Cannot create MeshRenderer because: Eucalyptus window is not initialized yet").ToString());
+            _EUC_LOG_ERR(EUCInitError("Cannot create MeshRenderer because: Eucalyptus window is not initialized yet").ToString().c_str());
             _EUC_LOG_INFO("Aborting shader creation");
             return;
         }

@@ -5,7 +5,7 @@ set(EUCDIR Eucalyptus/src)
 set(VENDOR ../vendor)
 
 add_library(Eucalyptus SHARED   
-                ${EUCDIR}/log/logger.cpp
+                ${EUCDIR}/log/logger.c
                 ${VENDOR}/glad/src/glad.c
                 ${EUCDIR}/color/color.cpp
                 ${EUCDIR}/error/error.cpp
@@ -36,7 +36,7 @@ if (WIN32)
 endif (WIN32)
 
 if (UNIX)
-    target_link_directories(Eucalyptus PUBLIC "vendor/GLFW/lib/linux")
+    target_link_directories(Eucalyptus PUBLIC "vendor/GLFW/lib/static")
     target_link_libraries(Eucalyptus PUBLIC "X11" "glfw3" "GL" "pthread" "stdc++fs")
 endif(UNIX)
 
