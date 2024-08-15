@@ -9,7 +9,7 @@
             "type": "cppdbg",
             "request": "launch",
             "preLaunchTask": "build",
-            "program": "${workspaceRoot}/build/bin/Sandbox.exe",
+            "program": "${workspaceRoot}/build/bin/Sandbox",
             "cwd": "${workspaceRoot}",
         }
     ]
