@@ -1,0 +1,68 @@
+[
+{
+  "directory": "/home/lucius/dev/EucalyptusRewrite/build",
+  "command": "/usr/bin/g++ -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus/include -g -o CMakeFiles/Sandbox.dir/sandbox.cpp.o -c /home/lucius/dev/EucalyptusRewrite/sandbox.cpp",
+  "file": "/home/lucius/dev/EucalyptusRewrite/sandbox.cpp",
+  "output": "CMakeFiles/Sandbox.dir/sandbox.cpp.o"
+},
+{
+  "directory": "/home/lucius/dev/EucalyptusRewrite/build",
+  "command": "/usr/bin/gcc -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus/vendor/clog -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus/vendor/glad/include -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus/include -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus/vendor/glm -g -o Eucalyptus/CMakeFiles/Eucalyptus.dir/src/clog.c.o -c /home/lucius/dev/EucalyptusRewrite/Eucalyptus/src/clog.c",
+  "file": "/home/lucius/dev/EucalyptusRewrite/Eucalyptus/src/clog.c",
+  "output": "Eucalyptus/CMakeFiles/Eucalyptus.dir/src/clog.c.o"
+},
+{
+  "directory": "/home/lucius/dev/EucalyptusRewrite/build",
+  "command": "/usr/bin/g++ -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus/vendor/clog -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus/vendor/glad/include -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus/include -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus/vendor/glm -g -o Eucalyptus/CMakeFiles/Eucalyptus.dir/src/ecs/object.cpp.o -c /home/lucius/dev/EucalyptusRewrite/Eucalyptus/src/ecs/object.cpp",
+  "file": "/home/lucius/dev/EucalyptusRewrite/Eucalyptus/src/ecs/object.cpp",
+  "output": "Eucalyptus/CMakeFiles/Eucalyptus.dir/src/ecs/object.cpp.o"
+},
+{
+  "directory": "/home/lucius/dev/EucalyptusRewrite/build",
+  "command": "/usr/bin/g++ -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus/vendor/clog -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus/vendor/glad/include -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus/include -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus/vendor/glm -g -o Eucalyptus/CMakeFiles/Eucalyptus.dir/src/ecs/scene.cpp.o -c /home/lucius/dev/EucalyptusRewrite/Eucalyptus/src/ecs/scene.cpp",
+  "file": "/home/lucius/dev/EucalyptusRewrite/Eucalyptus/src/ecs/scene.cpp",
+  "output": "Eucalyptus/CMakeFiles/Eucalyptus.dir/src/ecs/scene.cpp.o"
+},
+{
+  "directory": "/home/lucius/dev/EucalyptusRewrite/build",
+  "command": "/usr/bin/g++ -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus/vendor/clog -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus/vendor/glad/include -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus/include -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus/vendor/glm -g -o Eucalyptus/CMakeFiles/Eucalyptus.dir/src/base/init.cpp.o -c /home/lucius/dev/EucalyptusRewrite/Eucalyptus/src/base/init.cpp",
+  "file": "/home/lucius/dev/EucalyptusRewrite/Eucalyptus/src/base/init.cpp",
+  "output": "Eucalyptus/CMakeFiles/Eucalyptus.dir/src/base/init.cpp.o"
+},
+{
+  "directory": "/home/lucius/dev/EucalyptusRewrite/build",
+  "command": "/usr/bin/g++ -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus/vendor/clog -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus/vendor/glad/include -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus/include -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus/vendor/glm -g -o Eucalyptus/CMakeFiles/Eucalyptus.dir/src/base/window.cpp.o -c /home/lucius/dev/EucalyptusRewrite/Eucalyptus/src/base/window.cpp",
+  "file": "/home/lucius/dev/EucalyptusRewrite/Eucalyptus/src/base/window.cpp",
+  "output": "Eucalyptus/CMakeFiles/Eucalyptus.dir/src/base/window.cpp.o"
+},
+{
+  "directory": "/home/lucius/dev/EucalyptusRewrite/build",
+  "command": "/usr/bin/g++ -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus/vendor/clog -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus/vendor/glad/include -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus/include -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus/vendor/glm -g -o Eucalyptus/CMakeFiles/Eucalyptus.dir/src/components/mesh.cpp.o -c /home/lucius/dev/EucalyptusRewrite/Eucalyptus/src/components/mesh.cpp",
+  "file": "/home/lucius/dev/EucalyptusRewrite/Eucalyptus/src/components/mesh.cpp",
+  "output": "Eucalyptus/CMakeFiles/Eucalyptus.dir/src/components/mesh.cpp.o"
+},
+{
+  "directory": "/home/lucius/dev/EucalyptusRewrite/build",
+  "command": "/usr/bin/g++ -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus/vendor/clog -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus/vendor/glad/include -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus/include -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus/vendor/glm -g -o Eucalyptus/CMakeFiles/Eucalyptus.dir/src/components/transform.cpp.o -c /home/lucius/dev/EucalyptusRewrite/Eucalyptus/src/components/transform.cpp",
+  "file": "/home/lucius/dev/EucalyptusRewrite/Eucalyptus/src/components/transform.cpp",
+  "output": "Eucalyptus/CMakeFiles/Eucalyptus.dir/src/components/transform.cpp.o"
+},
+{
+  "directory": "/home/lucius/dev/EucalyptusRewrite/build",
+  "command": "/usr/bin/g++ -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus/vendor/clog -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus/vendor/glad/include -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus/include -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus/vendor/glm -g -o Eucalyptus/CMakeFiles/Eucalyptus.dir/src/graphics/shader.cpp.o -c /home/lucius/dev/EucalyptusRewrite/Eucalyptus/src/graphics/shader.cpp",
+  "file": "/home/lucius/dev/EucalyptusRewrite/Eucalyptus/src/graphics/shader.cpp",
+  "output": "Eucalyptus/CMakeFiles/Eucalyptus.dir/src/graphics/shader.cpp.o"
+},
+{
+  "directory": "/home/lucius/dev/EucalyptusRewrite/build",
+  "command": "/usr/bin/gcc -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus/vendor/clog -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus/vendor/glad/include -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus/include -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus/vendor/glm -g -o Eucalyptus/CMakeFiles/Eucalyptus.dir/vendor/glad/src/glad.c.o -c /home/lucius/dev/EucalyptusRewrite/Eucalyptus/vendor/glad/src/glad.c",
+  "file": "/home/lucius/dev/EucalyptusRewrite/Eucalyptus/vendor/glad/src/glad.c",
+  "output": "Eucalyptus/CMakeFiles/Eucalyptus.dir/vendor/glad/src/glad.c.o"
+},
+{
+  "directory": "/home/lucius/dev/EucalyptusRewrite/build",
+  "command": "/usr/bin/g++ -I/home/lucius/dev/EucalyptusRewrite/Eucalyptus/vendor/glm -g -o Eucalyptus/vendor/glm/glm/CMakeFiles/glm.dir/detail/glm.cpp.o -c /home/lucius/dev/EucalyptusRewrite/Eucalyptus/vendor/glm/glm/detail/glm.cpp",
+  "file": "/home/lucius/dev/EucalyptusRewrite/Eucalyptus/vendor/glm/glm/detail/glm.cpp",
+  "output": "Eucalyptus/vendor/glm/glm/CMakeFiles/glm.dir/detail/glm.cpp.o"
+}
+]

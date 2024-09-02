@@ -1,0 +1,42 @@
+cmake_minimum_required(VERSION 3.28)
+project(Eucalyptus)
+
+find_package(OpenGL REQUIRED)
+message(STATUS "Eucalyptus: Found OpenGL")
+find_package(glfw3 3.3.10 REQUIRED STATIC)
+message(STATUS "Eucalyptus: Found GLFW")
+
+add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/vendor/glm/")
+
+set(GLADDIR "${CMAKE_CURRENT_SOURCE_DIR}/vendor/glad/")
+set(CLOGDIR "${CMAKE_CURRENT_SOURCE_DIR}/vendor/clog/")
+set(SRCDIR "${CMAKE_CURRENT_SOURCE_DIR}/src")
+
+set(SRC_FILES "${SRCDIR}/clog.c"
+
+              "${SRCDIR}/ecs/object.cpp"
+              "${SRCDIR}/ecs/scene.cpp"
+              
+              "${SRCDIR}/base/init.cpp" 
+              "${SRCDIR}/base/window.cpp"
+
+              "${SRCDIR}/components/mesh.cpp"
+              "${SRCDIR}/components/transform.cpp"
+
+              "${SRCDIR}/graphics/shader.cpp"
+
+              "${GLADDIR}/src/glad.c"
+)
+
+#set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS}"-fno-PIE")
+
+add_library(Eucalyptus STATIC ${SRC_FILES})
+
+target_include_directories(Eucalyptus PRIVATE "${CLOGDIR}")
+target_include_directories(Eucalyptus PRIVATE "${GLADDIR}/include")
+target_include_directories(Eucalyptus PRIVATE "${OPENGL_INCLUDES}")
+target_include_directories(Eucalyptus PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include")
+target_include_directories(Eucalyptus PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/vendor/glm")
+
+target_link_libraries(Eucalyptus PRIVATE glfw OpenGL::GL glm::glm)
+message(STATUS "Eucalyptus: Configured Eucalyptus")
