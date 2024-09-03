@@ -14,3 +14,5 @@
 #include "Eucalyptus/graphics/mesh.h"
 #include "Eucalyptus/graphics/shader.h"
 #include "Eucalyptus/graphics/texture.h"
+
+#include "Eucalyptus/loaders/glb.h"

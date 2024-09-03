@@ -21,7 +21,9 @@ int main() {
     main_scene.Awake();
     while (window.IsRunning()) {
         window.Clear(Eucalyptus::Colors::DarkGray);
+
         cube.GetComponent<Eucalyptus::Transform>()->Rotate(0.01, {1.0, 1.0, 0.0});
+        
         main_scene.Update();
         window.Update();
     }
