@@ -6,7 +6,7 @@
 
 namespace Eucalyptus {
     void Scene::Awake() {
-        m_camera.res = Vector2f(1080.0f, 720.0f);
+        m_camera.res = {1080.0f, 720.0f};
         for (Object *o : m_objects) {
             o->Awake();
         }

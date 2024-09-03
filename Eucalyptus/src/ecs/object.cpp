@@ -1,4 +1,3 @@
-#include <Eucalyptus/ecs/component.h>
 #include <Eucalyptus/ecs/object.h>
 
 #include <clog.h>

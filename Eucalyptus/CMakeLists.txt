@@ -25,6 +25,7 @@ set(SRC_FILES "${SRCDIR}/clog.c"
               
               "${SRCDIR}/graphics/camera.cpp"
               "${SRCDIR}/graphics/shader.cpp"
+              "${SRCDIR}/graphics/texture.cpp"
 
               "${GLADDIR}/src/glad.c"
 )
@@ -38,6 +39,7 @@ target_include_directories(Eucalyptus PRIVATE "${GLADDIR}/include")
 target_include_directories(Eucalyptus PRIVATE "${OPENGL_INCLUDES}")
 target_include_directories(Eucalyptus PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include")
 target_include_directories(Eucalyptus PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/vendor/glm")
+target_include_directories(Eucalyptus PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/vendor/stb")
 
 target_link_libraries(Eucalyptus PRIVATE glfw OpenGL::GL glm::glm)
 message(STATUS "Eucalyptus: Configured Eucalyptus")

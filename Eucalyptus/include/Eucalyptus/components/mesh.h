@@ -1,5 +1,7 @@
 #pragma once
-#include "../ecs/component.h"
+
+
+#include "../graphics/material.h"
 #include "../graphics/shader.h"
 #include "../graphics/model.h"
 
@@ -8,12 +10,12 @@
 namespace Eucalyptus {
     class Mesh : public Component {
         public:
-            Mesh(Object *_, Shader sh, Model md);
+            Mesh(Object *_, Material mat, Model md);
 
             void Awake();
             void Update();
         
-            Shader GetShader() {return m_shader;}
+            Shader GetShader() {return m_material.GetShader();}
 
             std::vector<float> verts;
         private:
@@ -22,7 +24,7 @@ namespace Eucalyptus {
             unsigned int m_VAO;
             unsigned int m_EBO;
 
-            Shader m_shader;
+            Material m_material;
             Model m_model;
     };
 }

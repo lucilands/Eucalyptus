@@ -4,7 +4,7 @@
 
 namespace Eucalyptus {
     glm::mat4 Camera::GetViewMatrix() {
-        return glm::lookAt(position.asGLM(), position.asGLM() + front.asGLM(), up.asGLM());
+        return glm::lookAt(vec3_asGLM(position), vec3_asGLM(position) + vec3_asGLM(front), vec3_asGLM(up));
     }
 
     glm::mat4 Camera::GetProjectionMatrix() {
@@ -17,8 +17,8 @@ namespace Eucalyptus {
         _front.y = sin(glm::radians(pitch));
         _front.z = sin(glm::radians(yaw)) * cos(glm::radians(pitch));
 
-        front = Vector3f::fromGLM(glm::normalize(front.asGLM()));
-        right = Vector3f::fromGLM(glm::normalize(glm::cross(front.asGLM(), worldUp.asGLM())));
-        up = Vector3f::fromGLM(glm::normalize(glm::cross(right.asGLM(), front.asGLM())));
+        front = vec3_fromGLM<float>(glm::normalize(vec3_asGLM(front)));
+        right = vec3_fromGLM<float>(glm::normalize(glm::cross(vec3_asGLM(front), vec3_asGLM(worldUp))));
+        up = vec3_fromGLM<float>(glm::normalize(glm::cross(vec3_asGLM(right), vec3_asGLM(front))));
     }
 }

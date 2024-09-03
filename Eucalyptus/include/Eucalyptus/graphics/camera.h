@@ -20,9 +20,9 @@ namespace Eucalyptus {
 
             void Update();
 
-            Vector3f position = Vector3f(0.0f, 0.0f, 3.0f);
-            Vector3f front = Vector3f(0.0f, 0.0f, -1.0f);
-            Vector3f up = Vector3f(0.0f, 1.0f, 0.0f);
+            Vector3f position = {0.0f, 0.0f, 3.0f};
+            Vector3f front = {0.0f, 0.0f, -1.0f};
+            Vector3f up = {0.0f, 1.0f, 0.0f};
             Vector3f right;
             Vector3f worldUp = up;
 

@@ -29,7 +29,7 @@ namespace Eucalyptus {
         m_initializeWindow();
     }
 
-    Window::Window(unsigned int width, unsigned int height, const char *title) : size(width, height) {
+    Window::Window(unsigned int width, unsigned int height, const char *title) : size({width, height}) {
         if (!__gl_init) {
             clog(CLOG_FATAL, "OpenGL Is not initialized yet. Did you remember to call Eucalyptus::Init()?");
             Terminate();
@@ -56,7 +56,9 @@ namespace Eucalyptus {
             Eucalyptus::Terminate();
             exit(1);
         }
+        glEnable(GL_DEPTH_TEST);
         running = true;
+
     }
 
     void Window::m_windowHints() {
@@ -76,6 +78,6 @@ namespace Eucalyptus {
 
     void Window::Clear(Color col) {
         glClearColor(col.r, col.g, col.b, col.a);
-        glClear(GL_COLOR_BUFFER_BIT);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     }
 }
