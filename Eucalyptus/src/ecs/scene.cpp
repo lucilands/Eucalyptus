@@ -1,7 +1,7 @@
 #include <Eucalyptus/ecs/scene.h>
 #include <Eucalyptus/ecs/object.h>
 
-#include <Eucalyptus/components/mesh.h>
+#include <Eucalyptus/components/model_renderer.h>
 
 
 namespace Eucalyptus {
@@ -16,9 +16,9 @@ namespace Eucalyptus {
         m_camera.Update();
         for (Object *o : m_objects) {
             if (o->enabled) o->Update();
-            if (o->HasComponent<Mesh>()) {
-                o->GetComponent<Mesh>()->GetShader().SetMat4("_view", m_camera.GetViewMatrix());
-                o->GetComponent<Mesh>()->GetShader().SetMat4("_projection", m_camera.GetProjectionMatrix());
+            if (o->HasComponent<ModelRenderer>()) {
+                o->GetComponent<ModelRenderer>()->GetShader().SetMat4("_view", m_camera.GetViewMatrix());
+                o->GetComponent<ModelRenderer>()->GetShader().SetMat4("_projection", m_camera.GetProjectionMatrix());
             }
         }
     }

@@ -1,7 +1,9 @@
 #include <Eucalyptus/ecs/object.h>
-#include <Eucalyptus/components/mesh.h>
 
+#include <Eucalyptus/components/model_renderer.h>
 #include <Eucalyptus/components/transform.h>
+
+#include <Eucalyptus/graphics/mesh.h>
 
 #include <glad/glad.h>
 #include <GLFW/glfw3.h>
@@ -10,7 +12,7 @@
 
 
 namespace Eucalyptus {
-    Mesh::Mesh(Object *_, Material mat, Model md) : Component(_), m_material(mat), m_model(md) {
+    ModelRenderer::ModelRenderer(Object *_, Model md) : Component(_), m_model(md) {
         glGenBuffers(1, &m_VBO);
         glGenBuffers(1, &m_EBO);
         glGenVertexArrays(1, &m_VAO);
@@ -18,14 +20,14 @@ namespace Eucalyptus {
         this->RequireComponent<Transform>();
     }
 
-    void Mesh::Awake() {
+    void ModelRenderer::Awake() {
         glBindVertexArray(m_VAO);
 
         glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
-        glBufferData(GL_ARRAY_BUFFER, m_model.vert_len * sizeof(Vertex), m_model.verts_data(), GL_STATIC_DRAW);
+        glBufferData(GL_ARRAY_BUFFER, m_model.GetMesh().vert_len * sizeof(Vertex), m_model.GetMesh().verts_data(), GL_STATIC_DRAW);
 
         glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_EBO);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_model.indices_len * sizeof(unsigned int), m_model.indices_data(), GL_STATIC_DRAW);
+        glBufferData(GL_ELEMENT_ARRAY_BUFFER, m_model.GetMesh().indices_len * sizeof(unsigned int), m_model.GetMesh().indices_data(), GL_STATIC_DRAW);
         
         glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, sizeof(Vertex), (void*)0);
         glEnableVertexAttribArray(0);
@@ -33,15 +35,15 @@ namespace Eucalyptus {
         glEnableVertexAttribArray(1);
     }
 
-    void Mesh::Update() {
-        m_material.GetShader().SetMat4("_transform", m_parent->GetComponent<Transform>()->_get_transform());
-        m_material.Use();
+    void ModelRenderer::Update() {
+        m_model.GetMaterial().GetShader().SetMat4("_transform", m_parent->GetComponent<Transform>()->_get_transform());
+        m_model.GetMaterial().Use();
         glBindVertexArray(m_VAO);
         //glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_EBO);
-        if (m_model.indices_len > 0) {
+        if (m_model.GetMesh().indices_len > 0) {
             glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_EBO);
-            glDrawElements(GL_TRIANGLES, m_model.indices_len, GL_UNSIGNED_INT, 0);
+            glDrawElements(GL_TRIANGLES, m_model.GetMesh().indices_len, GL_UNSIGNED_INT, 0);
         }
-        else glDrawArrays(GL_TRIANGLES, 0, m_model.vert_len);
+        else glDrawArrays(GL_TRIANGLES, 0, m_model.GetMesh().vert_len);
     }
 }

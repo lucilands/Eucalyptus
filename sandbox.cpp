@@ -12,7 +12,9 @@ int main() {
     Eucalyptus::Shader basic_shader = Eucalyptus::Shader::FromFile("shader/vert.vs", "shader/frag.fs");
     Eucalyptus::Material basic(basic_shader, Eucalyptus::Texture("texture/brick.jpg"));
 
-    cube.AddComponent<Eucalyptus::Mesh>(basic, Eucalyptus::Prefabs::Cube);
+    Eucalyptus::Model model(basic, Eucalyptus::Prefabs::Cube);
+
+    cube.AddComponent<Eucalyptus::ModelRenderer>(model);
 
     main_scene.AddObject(&cube);
 

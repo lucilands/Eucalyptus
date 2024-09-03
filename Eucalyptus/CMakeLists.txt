@@ -20,7 +20,7 @@ set(SRC_FILES "${SRCDIR}/clog.c"
               "${SRCDIR}/base/init.cpp" 
               "${SRCDIR}/base/window.cpp"
 
-              "${SRCDIR}/components/mesh.cpp"
+              "${SRCDIR}/components/model_renderer.cpp"
               "${SRCDIR}/components/transform.cpp"
               
               "${SRCDIR}/graphics/camera.cpp"
