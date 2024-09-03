@@ -5,6 +5,7 @@ namespace Eucalyptus {
     template <typename T> class Vector2 {
         public:
             Vector2(T x, T y) {this->x = x; this->y = y;};
+            Vector2() {x = 0; y = 0;}
 
             T x;
             T y;

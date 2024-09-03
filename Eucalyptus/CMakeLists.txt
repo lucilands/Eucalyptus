@@ -22,7 +22,8 @@ set(SRC_FILES "${SRCDIR}/clog.c"
 
               "${SRCDIR}/components/mesh.cpp"
               "${SRCDIR}/components/transform.cpp"
-
+              
+              "${SRCDIR}/graphics/camera.cpp"
               "${SRCDIR}/graphics/shader.cpp"
 
               "${GLADDIR}/src/glad.c"

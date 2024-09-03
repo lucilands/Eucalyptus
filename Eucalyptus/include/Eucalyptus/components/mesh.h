@@ -12,6 +12,8 @@ namespace Eucalyptus {
             void Awake();
             void Update();
         
+            Shader GetShader() {return m_shader;}
+
             std::vector<float> verts;
         private:
 

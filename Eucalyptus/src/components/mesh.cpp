@@ -26,7 +26,7 @@ namespace Eucalyptus {
     }
 
     void Mesh::Update() {
-        m_shader.SetMat4("transform", m_parent->GetComponent<Transform>()->_get_transform());
+        m_shader.SetMat4("_transform", m_parent->GetComponent<Transform>()->_get_transform());
         m_shader.Use();
         glBindVertexArray(m_VAO);
         glDrawArrays(GL_TRIANGLES, 0, 3);

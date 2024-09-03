@@ -10,3 +10,4 @@
 
 #include "Eucalyptus/components/mesh.h"
 #include "Eucalyptus/components/transform.h"
+#include "Eucalyptus/graphics/camera.h"
