@@ -1,11 +1,14 @@
 #include <Eucalyptus/loaders/glb.h>
 #include <Eucalyptus/loaders/freader.h>
 
+#include <nlohmann/json.hpp>
+
 #include <string.h>
 #include <clog.h>
 
 #include <sstream>
 
+using json = nlohmann::json;
 
 
 namespace Eucalyptus {
@@ -30,7 +33,9 @@ namespace Eucalyptus {
         clog(CLOG_INFO, "Chunk %s\n\t- Length: %u", chunkName, chunkLength);
         if (strcmp(chunkName, "JSON") == 0) {
             char *data = GLB.ReadSTR(chunkLength);
-            printf("%s\n", data);
+
+            json cfg = json::parse(data);
+            printf("%s\n", cfg.dump(4).c_str());
 
             free(data);
         }
