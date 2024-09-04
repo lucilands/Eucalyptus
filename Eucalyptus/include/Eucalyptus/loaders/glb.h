@@ -4,5 +4,5 @@
 
 
 namespace Eucalyptus {
-    Model LoadGLBmesh(const char *path);
+    Mesh LoadGLBmesh(const char *path);
 }

@@ -28,6 +28,7 @@ set(SRC_FILES "${SRCDIR}/clog.c"
               "${SRCDIR}/graphics/texture.cpp"
 
               "${SRCDIR}/loaders/glb.cpp"
+              "${SRCDIR}/loaders/freader.cpp"
 
               "${GLADDIR}/src/glad.c"
 )
