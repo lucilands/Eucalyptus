@@ -1,7 +1,6 @@
 #pragma once
 
 
-#include <clog.h>
 #include <stdio.h>
 #include <stdint.h>
 
@@ -12,15 +11,11 @@
 namespace Eucalyptus {
     class FileReader {
         public:
-            FileReader(const char *path) {
-                m_file = fopen(path, "rb");
-                if (m_file == NULL) {
-                    clog(CLOG_ERROR, "Failed to open file %s:%s", path, strerror(errno));
-                }
-            }
+            FileReader(const char *path);
 
             uint32_t ReadUInt32();
-            char *ReadSTR(uint32_t size);
+            const char *ReadSTR(uint32_t size);
+            const unsigned char *ReadBytes(uint32_t size);
 
         private:
             FILE *m_file;
