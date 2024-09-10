@@ -1,11 +1,14 @@
 #include <Eucalyptus/loaders/glb.h>
 #include <Eucalyptus/loaders/freader.h>
 
+#include <nlohmann/json.hpp>
+
 #include <string.h>
 #include <clog.h>
 
 #include <sstream>
 
+using json = nlohmann::json;
 
 
 #define GLB_IDENTIFIER 0x46546C67
