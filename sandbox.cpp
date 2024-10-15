@@ -11,7 +11,7 @@ int main() {
     Eucalyptus::Object cube = Eucalyptus::Object();
 
     Eucalyptus::Shader basic_shader = Eucalyptus::Shader::FromFile("assets/shader/vert.vs", "assets/shader/frag.fs");
-    Eucalyptus::Material basic(basic_shader, Eucalyptus::Texture("texture/brick.jpg"));
+    Eucalyptus::Material basic(basic_shader, Eucalyptus::Texture("assets/texture/brick.jpg"));
 
     Eucalyptus::Model model(basic, Eucalyptus::Prefabs::Cube);
 
