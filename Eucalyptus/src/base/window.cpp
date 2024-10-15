@@ -55,7 +55,7 @@ namespace Eucalyptus {
             exit(1);
         }
         glEnable(GL_DEPTH_TEST);
-        glfwSwapInterval(1);
+        //glfwSwapInterval(1);
         running = true;
     }
 
