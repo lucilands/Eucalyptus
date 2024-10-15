@@ -8,6 +8,10 @@
 #include <clog.h>
 
 
+void __framebuffer_size_callback(GLFWwindow* window, int width, int height) {
+    glViewport(0, 0, width, height);
+}  
+
 namespace Eucalyptus {
     Window::Window(Vector2u size, const char *title) : size(size), delta_time(0.0f) {
         if (!__gl_init) {
@@ -48,6 +52,7 @@ namespace Eucalyptus {
     void Window::m_initializeWindow() {
         glfwMakeContextCurrent((GLFWwindow*)m_window);
         clog(CLOG_TRACE, "Made window to current context");
+        glfwSetFramebufferSizeCallback((GLFWwindow*)m_window, __framebuffer_size_callback);  
 
         if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
             clog(CLOG_FATAL, "Failed to initialize GLAD. Check logs for more details.");

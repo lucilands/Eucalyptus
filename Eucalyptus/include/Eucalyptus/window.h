@@ -4,7 +4,6 @@
 #include "math/color.h"
 
 
-
 namespace Eucalyptus {
     class Window {
         public:
