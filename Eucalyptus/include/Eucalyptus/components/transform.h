@@ -20,6 +20,9 @@ namespace Eucalyptus {
             void Translate(Vector3f t);
             void Rotate(float angle, Vector3f r);
 
+            void Scale(Vector3f t);
+            void Scale(float t);
+
             glm::mat4 _get_transform() {return m_transform;}
         private:
             glm::mat4 m_transform = glm::mat4(1.0f);

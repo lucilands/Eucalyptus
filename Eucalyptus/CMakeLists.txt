@@ -1,15 +1,30 @@
 cmake_minimum_required(VERSION 3.28)
 project(Eucalyptus)
 
+set(CMAKE_MODULE_PATH ${CMAKE_MODULE_PATH} "${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules/")
+
 message(STATUS "Eucalyptus: Looking for OpenGL")
 find_package(OpenGL REQUIRED)
 message(STATUS "Eucalyptus: Found OpenGL")
+
+if (NOT WIN32)
 message(STATUS "Eucalyptus: Looking for GLFW")
-find_package(glfw3 3.3.10 REQUIRED STATIC)
+find_package(GLFW3 REQUIRED)
 message(STATUS "Eucalyptus: Found GLFW")
+
 message(STATUS "Eucalyptus: Looking for nlohmann/json")
 find_package(nlohmann_json 3.2.0 REQUIRED)
 message(STATUS "Eucalyptus: Found nlohmann/json")
+else()
+message(STATUS "Eucalyptus: Fetching GLFW3")
+execute_process(COMMAND git clone https://github.com/glfw/glfw.git ${CMAKE_CURRENT_SOURCE_DIR}/windeps/glfw3)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/windeps/glfw3)
+set(OPENGL_INCLUDES ${CMAKE_CURRENT_SOURCE_DIR}/windeps/glfw3/include)
+message(STATUS "Eucalypus: Fetching Nlohman Json")
+execute_process(COMMAND git clone https://github.com/nlohmann/json ${CMAKE_CURRENT_SOURCE_DIR}/windeps/nlohmann_json)
+add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/windeps/nlohmann_json)
+set(NLOHMANN_JSON_INCLUDES ${CMAKE_CURRENT_SOURCE_DIR}/windeps/nlohmann_json/include)
+endif()
 
 add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/vendor/glm/")
 
@@ -42,13 +57,13 @@ set(SRC_FILES "${SRCDIR}/clog.c"
 
 add_library(Eucalyptus STATIC ${SRC_FILES})
 
-target_include_directories(Eucalyptus PRIVATE "${CLOGDIR}")
-target_include_directories(Eucalyptus PRIVATE "${GLADDIR}/include")
-target_include_directories(Eucalyptus PRIVATE "${OPENGL_INCLUDES}")
-target_include_directories(Eucalyptus PRIVATE "${NLOHMANN_JSON_INCLUDES}")
-target_include_directories(Eucalyptus PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/include")
-target_include_directories(Eucalyptus PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/vendor/glm")
-target_include_directories(Eucalyptus PRIVATE "${CMAKE_CURRENT_SOURCE_DIR}/vendor/stb")
+target_include_directories(Eucalyptus PUBLIC "${CLOGDIR}")
+target_include_directories(Eucalyptus PUBLIC "${GLADDIR}/include")
+target_include_directories(Eucalyptus PUBLIC "${OPENGL_INCLUDES}")
+target_include_directories(Eucalyptus PUBLIC "${NLOHMANN_JSON_INCLUDES}")
+target_include_directories(Eucalyptus PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/include")
+target_include_directories(Eucalyptus PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/vendor/glm")
+target_include_directories(Eucalyptus PUBLIC "${CMAKE_CURRENT_SOURCE_DIR}/vendor/stb")
 
 target_link_libraries(Eucalyptus PRIVATE glfw OpenGL::GL glm::glm nlohmann_json::nlohmann_json)
 message(STATUS "Eucalyptus: Configured Eucalyptus")

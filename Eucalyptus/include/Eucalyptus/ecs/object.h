@@ -7,6 +7,8 @@
 #include <typeinfo>
 #include <memory>
 
+
+
 namespace Eucalyptus {
     class Component;
 
@@ -38,7 +40,7 @@ namespace Eucalyptus {
             }
 
             template <class T> bool HasComponent() {
-                for (uint i = 0; i < m_components.size(); i++) {
+                for (unsigned int i = 0; i < m_components.size(); i++) {
                     if (typeid(*m_components[i]) == typeid(T)) return true;
                 }
                 return false;

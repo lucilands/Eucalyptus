@@ -13,6 +13,7 @@ namespace Eucalyptus {
 
             Vector2u size;
             bool running;
+            float delta_time;
 
             bool IsRunning();
             void Update();
@@ -22,5 +23,8 @@ namespace Eucalyptus {
             void m_windowHints();
 
             void *m_window;
+
+            float m_previous_time;
+            float m_now;
     };
 }

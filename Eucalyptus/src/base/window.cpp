@@ -8,10 +8,8 @@
 #include <clog.h>
 
 
-
-
 namespace Eucalyptus {
-    Window::Window(Vector2u size, const char *title) : size(size) {
+    Window::Window(Vector2u size, const char *title) : size(size), delta_time(0.0f) {
         if (!__gl_init) {
             clog(CLOG_FATAL, "OpenGL Is not initialized yet. Did you remember to call Eucalyptus::Init()?");
             Terminate();
@@ -29,7 +27,7 @@ namespace Eucalyptus {
         m_initializeWindow();
     }
 
-    Window::Window(unsigned int width, unsigned int height, const char *title) : size({width, height}) {
+    Window::Window(unsigned int width, unsigned int height, const char *title) : size({width, height}), delta_time(0.0f) {
         if (!__gl_init) {
             clog(CLOG_FATAL, "OpenGL Is not initialized yet. Did you remember to call Eucalyptus::Init()?");
             Terminate();
@@ -57,8 +55,8 @@ namespace Eucalyptus {
             exit(1);
         }
         glEnable(GL_DEPTH_TEST);
+        glfwSwapInterval(1);
         running = true;
-
     }
 
     void Window::m_windowHints() {
@@ -79,5 +77,8 @@ namespace Eucalyptus {
     void Window::Clear(Color col) {
         glClearColor(col.r, col.g, col.b, col.a);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        m_now = glfwGetTime();
+        delta_time = m_now - m_previous_time;
+        m_previous_time = m_now;
     }
 }
