@@ -8,7 +8,7 @@ int main() {
     Eucalyptus::Window window({1080, 720}, "Demo window");
 
     Eucalyptus::Scene main_scene;
-    Eucalyptus::Object cube = Eucalyptus::Object();
+    Eucalyptus::Object cube;
 
     Eucalyptus::Shader basic_shader = Eucalyptus::Shader::FromFile("assets/shader/vert.vs", "assets/shader/frag.fs");
     Eucalyptus::Material basic(basic_shader, Eucalyptus::Texture("assets/texture/brick.jpg"));
