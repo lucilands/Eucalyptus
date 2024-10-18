@@ -9,7 +9,7 @@ message(STATUS "Eucalyptus: Found OpenGL")
 
 if (NOT WIN32)
 message(STATUS "Eucalyptus: Looking for GLFW")
-find_package(GLFW3 REQUIRED)
+find_package(glfw3 REQUIRED)
 message(STATUS "Eucalyptus: Found GLFW")
 
 message(STATUS "Eucalyptus: Looking for Nlohmann Json")
