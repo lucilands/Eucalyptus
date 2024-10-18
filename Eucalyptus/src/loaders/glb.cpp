@@ -136,39 +136,10 @@ namespace Eucalyptus {
                 }
                 free(segment);
             }
-
-/*
-            accessor = accessors[__m[0]["attributes"]["POSITION"].get<unsigned int>()];
-            buffer_view = buffer_views[accessor["bufferView"].get<unsigned int>()];
-            if (strcmp(accessor["type"].get<std::string>().c_str(), "VEC2") == 0) {
-                float *segment = (float*)malloc(buffer_view["byteLength"].get<int>());
-                memcpy(segment, bin_chunk->data.bin + buffer_view["byteOffset"].get<int>(), buffer_view["byteLength"].get<int>());
-                for (unsigned int i = 0; i < buffer_view["byteLength"].get<int>() / sizeof(float); i+=2) {
-                    std::cout << "VEC2 X=" << segment[i] << " Y=" << segment[i+1] << std::endl;
-                    vertices.push_back((Vertex) {{segment[i], segment[i+1], 0.0f}, {0.0f, 0.0f}});
-                }
-                free(segment);
-            }
-*/
             std::cout << "Expected length: " << accessor["count"] << "\nActual lenght: " << vertices.size() << std::endl;
+            for (GLBChunk c : chunks) FreeChunk(c);
             return Mesh(vertices, indices);
         }
-/*
-        for (json accessor : accessors) {
-            if (accessor.type() == json::value_t::object) {
-                json buffer_view = buffer_views[accessor["bufferView"].get<int>()];
-                //std::cout << buffer_view.dump(4) << std::endl;
-                if (strcmp(accessor["type"].get<std::string>().c_str(), "VEC3")) {
-                    float *segment = (float*)malloc(buffer_view["byteLength"].get<int>());
-                    memcpy(segment, bin_chunk->data.bin + buffer_view["byteOffset"].get<int>(), buffer_view["byteLength"].get<int>());
-                    for (unsigned int i = 0; i < buffer_view["byteLength"].get<int>() / sizeof(float); i+=3)
-                    std::cout << "VEC3: X=" << segment[i] << " Y=" << segment[i+1] << " Z=" << segment[i+2] << std::endl;
-                    free(segment);
-                }
-            }
-        }
-*/
-        for (GLBChunk c : chunks) FreeChunk(c);
-        return Eucalyptus::Prefabs::Cube;
+        return Mesh({{0.0f, 0.0f, 0.0f}, {0.0f, 0.0f}});
     }
 }
