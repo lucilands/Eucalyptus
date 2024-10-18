@@ -15,7 +15,7 @@ namespace Eucalyptus {
 
             uint32_t ReadUInt32();
             const char *ReadSTR(uint32_t size);
-            const unsigned char *ReadBytes(uint32_t size);
+            unsigned char *ReadBytes(uint32_t size);
 
         private:
             FILE *m_file;

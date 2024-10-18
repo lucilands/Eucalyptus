@@ -11,7 +11,7 @@ namespace Eucalyptus {
     };
 
     union GLBChunkData {
-        const unsigned char *bin;
+        unsigned char *bin;
         const char *str;
     };
 

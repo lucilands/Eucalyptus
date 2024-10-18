@@ -15,7 +15,9 @@ message(STATUS "Eucalyptus: Found GLFW")
 message(STATUS "Eucalyptus: Looking for Nlohmann Json")
 find_package(nlohmann_json 3.2.0 REQUIRED)
 message(STATUS "Eucalyptus: Found Nlohmann Json")
+
 else()
+
 message(STATUS "Eucalyptus: Fetching and configuring GLFW3")
 if(NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/windeps/glfw3)
 message(STATUS "Eucalyptus: Cloning GLFW3 from https://github.com/glfw/glfw.git")
@@ -28,6 +30,7 @@ set(GLFW_BUILD_TESTS OFF)
 set(GLFW_BUILD_DOCS OFF)
 set(GLFW_INSTALL OFF)
 message(STATUS "Eucalyptus: Fetched and configured GLFW3")
+
 message(STATUS "Eucalypus: Fetching and configuring Nlohmann Json")
 if(NOT EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/windeps/nlohmann_json)
 message(STATUS "Eucalyptus: Cloning Nlohmann Json from https://github.com/nlohmann/json.git")
@@ -36,6 +39,7 @@ endif()
 add_subdirectory(${CMAKE_CURRENT_SOURCE_DIR}/windeps/nlohmann_json)
 set(NLOHMANN_JSON_INCLUDES ${CMAKE_CURRENT_SOURCE_DIR}/windeps/nlohmann_json/include)
 message(STATUS "Eucalyptus: Fetched and configured Nlohmann Json")
+
 endif()
 
 add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/vendor/glm/")

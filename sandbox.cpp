@@ -13,7 +13,7 @@ int main() {
     Eucalyptus::Shader basic_shader = Eucalyptus::Shader::FromFile("assets/shader/vert.vs", "assets/shader/frag.fs");
     Eucalyptus::Material basic(basic_shader, Eucalyptus::Texture("assets/texture/brick.jpg"));
 
-    Eucalyptus::Model model(basic, Eucalyptus::Prefabs::Cube);
+    Eucalyptus::Model model(basic, Eucalyptus::LoadGLBmesh("assets/models/sphere.glb"));
 
     cube.AddComponent<Eucalyptus::ModelRenderer>(model);
 

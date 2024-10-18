@@ -25,7 +25,7 @@ namespace Eucalyptus {
         return ret;
     }
 
-    const unsigned char *FileReader::ReadBytes(uint32_t size) {
+    unsigned char *FileReader::ReadBytes(uint32_t size) {
         unsigned char *ret = (unsigned char *)malloc(size);
         fread(ret, size, 1, m_file);
         return ret;
