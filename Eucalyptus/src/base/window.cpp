@@ -77,13 +77,23 @@ namespace Eucalyptus {
         running = !glfwWindowShouldClose((GLFWwindow*)m_window);
         glfwSwapBuffers((GLFWwindow*)m_window);
         glfwPollEvents();
+
+        double currentTime = glfwGetTime();
+        m_frameCount++;
+        if ( currentTime - m_previousTime >= 1.0 )
+        {
+            framerate = m_frameCount;
+            m_frameCount = 0;
+            m_previousTime = currentTime;
+        }
+
+        m_now = glfwGetTime();
+        delta_time = m_now - m_previous_time;
+        m_previous_time = m_now;
     }
 
     void Window::Clear(Color col) {
         glClearColor(col.r, col.g, col.b, col.a);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        m_now = glfwGetTime();
-        delta_time = m_now - m_previous_time;
-        m_previous_time = m_now;
     }
 }

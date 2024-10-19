@@ -13,6 +13,7 @@ namespace Eucalyptus {
             Vector2u size;
             bool running;
             float delta_time;
+            float framerate;
 
             bool IsRunning();
             void Update();
@@ -25,5 +26,8 @@ namespace Eucalyptus {
 
             float m_previous_time;
             float m_now;
+
+            float m_frameCount;
+            float m_previousTime;
     };
 }
