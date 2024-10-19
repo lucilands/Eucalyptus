@@ -2,6 +2,7 @@
 
 
 
+float rotation_speed = 10.0f;
 
 int main() {
     Eucalyptus::Init();
@@ -30,7 +31,8 @@ int main() {
     while (window.IsRunning()) {
         window.Clear(Eucalyptus::Colors::DarkGray);
 
-        monkey.GetComponent<Eucalyptus::Transform>()->Rotate(10.0f * window.delta_time, {1.0, 1.0, 0.0});
+        monkey.GetComponent<Eucalyptus::Transform>()->Rotate(rotation_speed * window.delta_time, {1.0, 1.0, 0.0});
+        sphere.GetComponent<Eucalyptus::Transform>()->Rotate(rotation_speed * window.delta_time, {-1.0, -1.0, 0.0});
         
         main_scene.Update();
         window.Update();
