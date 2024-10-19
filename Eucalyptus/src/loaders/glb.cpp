@@ -70,6 +70,10 @@ namespace Eucalyptus {
             clog(CLOG_FATAL, "GLB File %s does not have a valid glTF header!", path);
             exit(1);
         }
+        if (version < 2) {
+            clog(CLOG_FATAL, "glTF versions lower than 2.0 are not supported yet");
+            exit(1);
+        }
 
         unsigned int len = 24;
         std::vector<GLBChunk> chunks;
