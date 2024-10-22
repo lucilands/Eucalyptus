@@ -5,6 +5,9 @@
 
 
 namespace Eucalyptus {
+    class Window;
+    extern Window *window;
+    
     class Window {
         public:
             Window(Vector2u size, const char *title);
@@ -14,10 +17,12 @@ namespace Eucalyptus {
             bool running;
             float delta_time;
             float framerate;
+            float time;
 
             bool IsRunning();
             void Update();
             void Clear(Color col);
+            static float GetDeltaTime() {return Eucalyptus::window->delta_time;}
         private:
             void m_initializeWindow();
             void m_windowHints();

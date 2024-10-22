@@ -12,8 +12,14 @@ void __framebuffer_size_callback(GLFWwindow* window, int width, int height) {
     glViewport(0, 0, width, height);
 }  
 
+Eucalyptus::Window *Eucalyptus::window = NULL;
 namespace Eucalyptus {
     Window::Window(Vector2u size, const char *title) : size(size), delta_time(0.0f) {
+        if (Eucalyptus::window != NULL) {
+            clog(CLOG_FATAL, "You can only have one window open at a time!");
+            Terminate();
+            exit(1);
+        }
         if (!__gl_init) {
             clog(CLOG_FATAL, "OpenGL Is not initialized yet. Did you remember to call Eucalyptus::Init()?");
             Terminate();
@@ -32,6 +38,11 @@ namespace Eucalyptus {
     }
 
     Window::Window(unsigned int width, unsigned int height, const char *title) : size({width, height}), delta_time(0.0f) {
+        if (Eucalyptus::window != NULL) {
+            clog(CLOG_FATAL, "You can only have one window open at a time!");
+            Terminate();
+            exit(1);
+        }
         if (!__gl_init) {
             clog(CLOG_FATAL, "OpenGL Is not initialized yet. Did you remember to call Eucalyptus::Init()?");
             Terminate();
@@ -62,6 +73,7 @@ namespace Eucalyptus {
         glEnable(GL_DEPTH_TEST);
         //glfwSwapInterval(1);
         running = true;
+        Eucalyptus::window = this;
     }
 
     void Window::m_windowHints() {
@@ -90,6 +102,8 @@ namespace Eucalyptus {
         m_now = glfwGetTime();
         delta_time = m_now - m_previous_time;
         m_previous_time = m_now;
+
+        time = glfwGetTime();
     }
 
     void Window::Clear(Color col) {

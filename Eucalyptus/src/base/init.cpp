@@ -25,6 +25,7 @@ namespace Eucalyptus {
     }
 
     void Terminate() {
+        clog(CLOG_INFO, "Application ran for %fs", glfwGetTime());
         glfwTerminate();
         clog(CLOG_INFO, "Terminated.");
         __gl_init = false;

@@ -34,7 +34,7 @@ namespace Eucalyptus {
         }
         chunkName[4] = 0;
 
-        clog(CLOG_INFO, "Chunk %s\n\t- Length: %u", chunkName, chunkLength);
+        clog(CLOG_DEBUG, "Chunk %s\n\t- Length: %u", chunkName, chunkLength);
         if (strcmp(chunkName, "JSON") == 0) {
             const char *data = reader.ReadSTR(chunkLength);
             return (GLBChunk) {
@@ -65,7 +65,7 @@ namespace Eucalyptus {
         uint32_t version = GLB.ReadUInt32();
         uint32_t length = GLB.ReadUInt32();
 
-        clog(CLOG_INFO, "Loading glb file \"%s\"\n\t- Magic: 0x%X\n\t- Version: %u\n\t- Length: %u", path, magic, version, length);
+        clog(CLOG_DEBUG, "Loading glb file \"%s\"\n\t- Magic: 0x%X\n\t- Version: %u\n\t- Length: %u", path, magic, version, length);
         if (magic != GLB_IDENTIFIER) {
             clog(CLOG_FATAL, "GLB File %s does not have a valid glTF header!", path);
             exit(1);
@@ -140,7 +140,6 @@ namespace Eucalyptus {
                 }
                 free(segment);
             }
-            std::cout << "Expected length: " << accessor["count"] << "\nActual lenght: " << vertices.size() << std::endl;
             for (GLBChunk c : chunks) FreeChunk(c);
             return Mesh(vertices, indices);
         }

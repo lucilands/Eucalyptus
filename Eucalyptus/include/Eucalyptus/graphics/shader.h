@@ -17,6 +17,10 @@ namespace Eucalyptus {
                 glUniformMatrix4fv(glGetUniformLocation(m_ID, name), 1, GL_FALSE, &mat4[0][0]);
             }
 
+            void SetFloat(const char *name, const float val) {
+                glUniform1f(glGetUniformLocation(m_ID, name), val);
+            }
+
         private:
             unsigned int m_ID;
     };

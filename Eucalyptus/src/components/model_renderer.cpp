@@ -1,12 +1,12 @@
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
+
 #include <Eucalyptus/ecs/object.h>
 
 #include <Eucalyptus/components/model_renderer.h>
 #include <Eucalyptus/components/transform.h>
 
 #include <Eucalyptus/graphics/mesh.h>
-
-#include <glad/glad.h>
-#include <GLFW/glfw3.h>
 
 #include <iostream>
 
@@ -37,6 +37,7 @@ namespace Eucalyptus {
 
     void ModelRenderer::Update() {
         m_model.GetMaterial().GetShader().SetMat4("_transform", m_parent->GetComponent<Transform>()->_get_transform());
+        m_model.GetMaterial().GetShader().SetFloat("_time", glfwGetTime());
         m_model.GetMaterial().Use();
         glBindVertexArray(m_VAO);
         //glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_EBO);
