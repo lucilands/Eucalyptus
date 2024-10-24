@@ -6,7 +6,9 @@ float rotation_speed = 10.0f;
 
 class Rotate : public Eucalyptus::Component {
     public:
-        Rotate(Eucalyptus::Object *_, float speed = 10.0f, Eucalyptus::Vector3f direction = {1.0f,1.0f,1.0f}) : Component(_), m_speed(speed), m_direction(direction) {}
+        Rotate(Eucalyptus::Object *_, float speed = 10.0f, Eucalyptus::Vector3f direction = {1.0f,1.0f,1.0f}) : Component(_), m_speed(speed), m_direction(direction) {
+            RequireComponent<Eucalyptus::Transform>();
+        }
         void Update() {
             m_parent->GetComponent<Eucalyptus::Transform>()->Rotate(m_speed * Eucalyptus::Window::GetDeltaTime(), m_direction);
         }
@@ -23,7 +25,7 @@ int main() {
     Eucalyptus::Object monkey;
     Eucalyptus::Object sphere;
 
-    Eucalyptus::Shader basic_shader = Eucalyptus::Shader::FromFile("assets/shader/vert.vs", "assets/shader/frag.fs");
+    Eucalyptus::Shader basic_shader = Eucalyptus::Shader::FromFile("assets/shader/default.vert", "assets/shader/default.frag");
     Eucalyptus::Material basic(basic_shader, Eucalyptus::Texture("assets/texture/brick.jpg"));
 
     Eucalyptus::Model monkey_model(basic, Eucalyptus::LoadGLBmesh("assets/models/monkey.glb"));
@@ -32,8 +34,8 @@ int main() {
     monkey.AddComponent<Eucalyptus::ModelRenderer>(monkey_model);
     sphere.AddComponent<Eucalyptus::ModelRenderer>(sphere_model);
 
-    monkey.AddComponent<Rotate>(rotation_speed, (Eucalyptus::Vector3f) {1.0f, 1.0f, 1.0f});
-    sphere.AddComponent<Rotate>(rotation_speed, (Eucalyptus::Vector3f) {-1.0f, -1.0f, -1.0f});
+    monkey.AddComponent<Rotate>(rotation_speed, (Eucalyptus::Vector3f) {0.0f, 1.0f, 0.0f});
+    sphere.AddComponent<Rotate>(rotation_speed, (Eucalyptus::Vector3f) {-0.0f, -1.0f, -0.0f});
 
     main_scene.AddObject(&monkey);
     main_scene.AddObject(&sphere);
