@@ -109,10 +109,12 @@ namespace Eucalyptus {
             //std::cout << __m.dump(4) << std::endl;
 
             json accessor = accessors[__m[0]["attributes"]["POSITION"].get<unsigned int>()];
+            json normal = accessors[__m[0]["attributes"]["NORMAL"].get<unsigned int>()];
             json texcoord_0 = accessors[__m[0]["attributes"]["TEXCOORD_0"].get<unsigned int>()];
             json scalar = accessors[__m[0]["indices"].get<unsigned int>()];
 
             json buffer_view = buffer_views[accessor["bufferView"].get<unsigned int>()];
+            json normal_buffer_view = buffer_views[normal["bufferView"].get<unsigned int>()];
             json scalar_buffer_view = buffer_views[scalar["bufferView"].get<unsigned int>()];
             json texcoord_0_buffer_view = buffer_views[texcoord_0["bufferView"].get<unsigned int>()];
 
@@ -129,13 +131,15 @@ namespace Eucalyptus {
             //if (accessor["componentType"] == GL_FLOAT) {std::cout << "componentType = GL_FLOAT" << std::endl;}
             if (strcmp(accessor["type"].get<std::string>().c_str(), "VEC3") == 0) {
                 float *segment = (float*)malloc(buffer_view["byteLength"].get<int>());
+                float *normal_segment = (float*)malloc(normal_buffer_view["byteLength"].get<int>());
                 float *texcoord_0_segment = (float*)malloc(texcoord_0_buffer_view["byteLength"].get<int>());
                 memcpy(segment, bin_chunk->data.bin + buffer_view["byteOffset"].get<int>(), buffer_view["byteLength"].get<int>());
+                memcpy(normal_segment, bin_chunk->data.bin + normal_buffer_view["byteOffset"].get<int>(), normal_buffer_view["byteLength"].get<int>());
                 memcpy(texcoord_0_segment, bin_chunk->data.bin + texcoord_0_buffer_view["byteOffset"].get<int>(), texcoord_0_buffer_view["byteLength"].get<int>());
 
                 unsigned int j = 0;
                 for (unsigned int i = 0; (i < buffer_view["byteLength"].get<int>() / sizeof(float)) && (j < texcoord_0_buffer_view["byteLength"].get<int>() / sizeof(float)); i+=3, j+=2) {
-                    vertices.push_back({{segment[i], segment[i+1], segment[i+2]}, {texcoord_0_segment[j], texcoord_0_segment[j+1]}});
+                    vertices.push_back({{segment[i], segment[i+1], segment[i+2]}, {texcoord_0_segment[j], texcoord_0_segment[j+1]}, {normal_segment[0], normal_segment[1], normal_segment[2]}});
                     //std::cout << "VEC3 X=" << vert.position.x << " Y=" << vert.position.y << " Z=" << vert.position.z << std::endl;
                 }
                 free(segment);
