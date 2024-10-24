@@ -1,6 +1,7 @@
 #include <Eucalyptus/loaders/freader.h>
 #include <clog.h>
 
+#include <stdlib.h>
 
 
 

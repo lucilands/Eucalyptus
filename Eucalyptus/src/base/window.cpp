@@ -5,6 +5,8 @@
 #include <Eucalyptus/window.h>
 #include <Eucalyptus/math/vector2.h>
 
+#include <stdlib.h>
+
 #include <clog.h>
 
 
