@@ -1,6 +1,7 @@
 #pragma once
 
 #include "../vendor/glm/glm/glm.hpp"
+#include "Eucalyptus/math/vector3.h"
 
 #include "../vendor/glad/include/glad/glad.h"
 #include <GLFW/glfw3.h>
@@ -19,6 +20,10 @@ namespace Eucalyptus {
 
             void SetFloat(const char *name, const float val) {
                 glUniform1f(glGetUniformLocation(m_ID, name), val);
+            }
+
+            void SetVec3(const char *name, const Vector3f val) {
+                glUniform3f(glGetUniformLocation(m_ID, name), val.x, val.y, val.z);
             }
 
         private:

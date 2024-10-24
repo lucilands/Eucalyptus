@@ -19,6 +19,7 @@ namespace Eucalyptus {
             if (o->HasComponent<ModelRenderer>()) {
                 o->GetComponent<ModelRenderer>()->GetShader().SetMat4("_view", m_camera.GetViewMatrix());
                 o->GetComponent<ModelRenderer>()->GetShader().SetMat4("_projection", m_camera.GetProjectionMatrix());
+                o->GetComponent<ModelRenderer>()->GetShader().SetVec3("_viewPos", m_camera.position);
             }
         }
     }

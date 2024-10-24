@@ -31,10 +31,11 @@ int main() {
     Eucalyptus::Model monkey_model(basic, Eucalyptus::LoadGLBmesh("assets/models/monkey.glb"));
     Eucalyptus::Model sphere_model(basic, Eucalyptus::LoadGLBmesh("assets/models/sphere.glb"));
 
+
     monkey.AddComponent<Eucalyptus::ModelRenderer>(monkey_model);
     sphere.AddComponent<Eucalyptus::ModelRenderer>(sphere_model);
 
-    monkey.AddComponent<Rotate>(rotation_speed, (Eucalyptus::Vector3f) {0.0f, 1.0f, 0.0f});
+    monkey.AddComponent<Rotate>(rotation_speed, (Eucalyptus::Vector3f) {0.0f, 1.0f, 1.0f});
     sphere.AddComponent<Rotate>(rotation_speed, (Eucalyptus::Vector3f) {-0.0f, -1.0f, -0.0f});
 
     main_scene.AddObject(&monkey);
