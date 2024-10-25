@@ -24,25 +24,32 @@ int main() {
     Eucalyptus::Scene main_scene;
     Eucalyptus::Object monkey;
     Eucalyptus::Object sphere;
+    Eucalyptus::Object cube;
 
     Eucalyptus::Shader basic_shader = Eucalyptus::Shader::FromFile("assets/shader/default.vert", "assets/shader/default.frag");
     Eucalyptus::Material basic(basic_shader, Eucalyptus::Texture("assets/texture/brick.jpg"));
+    Eucalyptus::Material basic_monkey(basic_shader, Eucalyptus::Texture("assets/texture/monkey.png"));
 
-    Eucalyptus::Model monkey_model(basic, Eucalyptus::LoadGLBmesh("assets/models/monkey.glb"));
+    Eucalyptus::Model monkey_model(basic_monkey, Eucalyptus::LoadGLBmesh("assets/models/monkey.glb"));
     Eucalyptus::Model sphere_model(basic, Eucalyptus::LoadGLBmesh("assets/models/sphere.glb"));
-
+    Eucalyptus::Model cube_model(basic, Eucalyptus::Prefabs::Cube);
 
     monkey.AddComponent<Eucalyptus::ModelRenderer>(monkey_model);
     sphere.AddComponent<Eucalyptus::ModelRenderer>(sphere_model);
+    cube.AddComponent<Eucalyptus::ModelRenderer>(cube_model);
 
-    monkey.AddComponent<Rotate>(rotation_speed, (Eucalyptus::Vector3f) {0.0f, 1.0f, 1.0f});
-    sphere.AddComponent<Rotate>(rotation_speed, (Eucalyptus::Vector3f) {-0.0f, -1.0f, -0.0f});
+    monkey.AddComponent<Rotate>(rotation_speed, (Eucalyptus::Vector3f) {1.0f, 1.0f, 1.0f});
+    sphere.AddComponent<Rotate>(rotation_speed, (Eucalyptus::Vector3f) {1.0f, -1.0f, -1.0f});
+    cube.AddComponent<Rotate>(rotation_speed, (Eucalyptus::Vector3f) {1.0f, 1.0f, -1.0f});
 
     main_scene.AddObject(&monkey);
     main_scene.AddObject(&sphere);
+    main_scene.AddObject(&cube);
+
     main_scene.GetCamera()->position = {0.0f, 0.0f, 10.0f};
 
     sphere.GetComponent<Eucalyptus::Transform>()->Translate({3.0f, 0.0f, 0.0f});
+    cube.GetComponent<Eucalyptus::Transform>()->Translate({-3.0f, 0.0f, 0.0f});
 
     main_scene.Awake();
     while (window.IsRunning()) {

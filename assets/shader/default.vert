@@ -13,8 +13,8 @@ out vec3 frag_pos;
 
 void main()
 {
-    gl_Position = _projection * _view * _transform * vec4(aPos.x, aPos.y, aPos.z, 1.0);
+    gl_Position = _projection * _view * _transform * vec4(aPos, 1.0);
     texcoord = texCoord;
-    normal = aNormal;
+    normal = mat3(transpose(inverse(_transform))) * aNormal;
     frag_pos = vec3(_transform * vec4(aPos, 0.0));
 }

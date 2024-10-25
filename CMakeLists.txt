@@ -9,4 +9,4 @@ add_executable(Sandbox sandbox.cpp)
 
 target_include_directories(Sandbox PRIVATE Eucalyptus/include)
 target_link_libraries(Sandbox Eucalyptus)
-file(COPY ${CMAKE_SOURCE_DIR}/assets DESTINATION ${CMAKE_RUNTIME_OUTPUT_DIRECTORY})
+add_custom_command(TARGET Sandbox POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory ${CMAKE_SOURCE_DIR}/assets ${CMAKE_RUNTIME_OUTPUT_DIRECTORY}/assets)
