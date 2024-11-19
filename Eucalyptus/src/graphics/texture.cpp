@@ -27,4 +27,7 @@ namespace Eucalyptus {
 
         stbi_image_free(data);
     }
+    void Texture::Use() {
+        glBindTexture(GL_TEXTURE_2D, m_ID);
+    }
 }

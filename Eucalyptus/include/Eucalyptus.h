@@ -16,3 +16,5 @@
 #include "Eucalyptus/graphics/texture.h"
 
 #include "Eucalyptus/loaders/glb.h"
+
+#include "Eucalyptus/input/keycodes.h"

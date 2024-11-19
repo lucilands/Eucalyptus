@@ -76,6 +76,8 @@ namespace Eucalyptus {
         //glfwSwapInterval(1);
         running = true;
         Eucalyptus::window = this;
+
+        glfwSetKeyCallback((GLFWwindow*)m_window, input._glfw_callback);
     }
 
     void Window::m_windowHints() {
@@ -90,6 +92,9 @@ namespace Eucalyptus {
     void Window::Update() {
         running = !glfwWindowShouldClose((GLFWwindow*)m_window);
         glfwSwapBuffers((GLFWwindow*)m_window);
+        glfwSetWindowUserPointer((GLFWwindow*)m_window, (void*)(&input));
+        input.last_action = -1;
+        input.last_key = -1;
         glfwPollEvents();
 
         double currentTime = glfwGetTime();

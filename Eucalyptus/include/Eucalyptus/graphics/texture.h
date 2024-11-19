@@ -1,7 +1,6 @@
 #pragma once
 
 
-#include "../vendor/glad/include/glad/glad.h"
 
 
 namespace Eucalyptus {
@@ -10,7 +9,7 @@ namespace Eucalyptus {
             Texture(const char *path);
             Texture(const unsigned char *data);
 
-            void Use() {glBindTexture(GL_TEXTURE_2D, m_ID);}
+            void Use();
 
         private:
             unsigned int m_ID;

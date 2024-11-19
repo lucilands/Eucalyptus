@@ -50,6 +50,10 @@ set(SRCDIR "${CMAKE_CURRENT_SOURCE_DIR}/src")
 
 set(SRC_FILES "${SRCDIR}/clog.c"
 
+              "${GLADDIR}/src/glad.c"
+
+              "${SRCDIR}/input/input_dispatcher.cpp"
+
               "${SRCDIR}/ecs/object.cpp"
               "${SRCDIR}/ecs/scene.cpp"
               
@@ -65,8 +69,6 @@ set(SRC_FILES "${SRCDIR}/clog.c"
 
               "${SRCDIR}/loaders/glb.cpp"
               "${SRCDIR}/loaders/freader.cpp"
-
-              "${GLADDIR}/src/glad.c"
 )
 
 #set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS}"-fno-PIE")

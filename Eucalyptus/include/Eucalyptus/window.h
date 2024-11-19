@@ -2,6 +2,8 @@
 
 #include "math/vector2.h"
 #include "math/color.h"
+#include "input/input_dispatcher.h"
+#include "input/keycodes.h"
 
 
 namespace Eucalyptus {
@@ -18,6 +20,7 @@ namespace Eucalyptus {
             float delta_time;
             float framerate;
             float time;
+            InputDispatcher input;
 
             bool IsRunning();
             void Update();
