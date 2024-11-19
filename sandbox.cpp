@@ -3,6 +3,7 @@
 
 
 float rotation_speed = 10.0f;
+float camera_speed = 10.0f;
 
 class Rotate : public Eucalyptus::Component {
     public:
@@ -54,7 +55,21 @@ int main() {
     main_scene.Awake();
     while (window.IsRunning()) {
         window.Clear(Eucalyptus::Colors::DarkGray);
-        
+
+        Eucalyptus::Vector3f cam_pos = main_scene.GetCamera()->position;
+        main_scene.GetCamera()->position = {cam_pos.x + (camera_speed * (-window.input.held_keys['a'] + window.input.held_keys['d']) * window.GetDeltaTime()),
+                                            cam_pos.y,
+                                            cam_pos.z + (camera_speed * (-window.input.held_keys['w'] + window.input.held_keys['s']) * window.GetDeltaTime())};
+
+        if (window.input.IsKeyPressed(Eucalyptus::Input::KeyCode::NUMPAD_ADD)) {
+            camera_speed+=1.0f;
+            printf("camera_speed: %f\r", camera_speed);
+        }
+        if (window.input.IsKeyPressed(Eucalyptus::Input::KeyCode::NUMPAD_SUBTRACT)) {
+            camera_speed-=1.0f;
+            printf("camera_speed: %f\r", camera_speed);
+        }
+
         main_scene.Update();
         window.Update();
     }
