@@ -58,7 +58,7 @@ int main() {
 
         Eucalyptus::Vector3f cam_pos = main_scene.GetCamera()->position;
         main_scene.GetCamera()->position = {cam_pos.x + (camera_speed * (-window.input.held_keys['a'] + window.input.held_keys['d']) * window.GetDeltaTime()),
-                                            cam_pos.y,
+                                            cam_pos.y + (camera_speed * (-window.input.IsKeyHeld(Eucalyptus::Input::KeyCode::SHIFT) + window.input.IsKeyHeld(Eucalyptus::Input::KeyCode::CONTROL)) * window.GetDeltaTime()),
                                             cam_pos.z + (camera_speed * (-window.input.held_keys['w'] + window.input.held_keys['s']) * window.GetDeltaTime())};
 
         if (window.input.IsKeyPressed(Eucalyptus::Input::KeyCode::NUMPAD_ADD)) {
