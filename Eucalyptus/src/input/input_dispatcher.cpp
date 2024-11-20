@@ -7,7 +7,7 @@
 
 
 namespace Eucalyptus {
-    void InputDispatcher::_glfw_callback(GLFWwindow* win, int key, int scancode, int action, int mods) {
+    void InputDispatcher::_glfw_key_callback(GLFWwindow* win, int key, int scancode, int action, int mods) {
         InputDispatcher *self = (InputDispatcher*)glfwGetWindowUserPointer(win);
         self->last_key = -1;
         self->last_action = -1;
@@ -36,6 +36,6 @@ namespace Eucalyptus {
     }
 
     bool InputDispatcher::IsKeyHeld(Input::KeyCode code) {
-        return glfwGetKey(*m_window, static_cast<int>(code)) == GLFW_PRESS;
+        return glfwGetKey(m_window, static_cast<int>(code)) == GLFW_PRESS;
     }
 }
