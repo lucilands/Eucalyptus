@@ -7,13 +7,16 @@ float camera_speed = 10.0f;
 
 class Rotate : public Eucalyptus::Component {
     public:
-        Rotate(Eucalyptus::Object *_, float speed = 10.0f, Eucalyptus::Vector3f direction = {1.0f,1.0f,1.0f}) : Component(_), m_speed(speed), m_direction(direction) {
+        Rotate(Eucalyptus::Object *_, float speed = 10.0f, Eucalyptus::Vector3f direction = {1.0f,1.0f,1.0f}) : Component(_), m_speed(speed), m_direction(direction), m_default_speed(speed) {
             RequireComponent<Eucalyptus::Transform>();
         }
         void Update() {
             m_parent->GetComponent<Eucalyptus::Transform>()->Rotate(m_speed * Eucalyptus::Window::GetDeltaTime(), m_direction);
+            if (Eucalyptus::window->input.IsKeyHeld(Eucalyptus::Input::KeyCode::R)) m_speed = m_default_speed * 2;
+            else m_speed = m_default_speed;
         }
     private:
+        float m_default_speed;
         float m_speed;
         Eucalyptus::Vector3f m_direction;
 };
