@@ -36,6 +36,6 @@ namespace Eucalyptus {
     }
 
     bool InputDispatcher::IsKeyHeld(Input::KeyCode code) {
-        return glfwGetKey(m_window, static_cast<int>(code)) == GLFW_PRESS;
+        return glfwGetKey(*m_window, static_cast<int>(code)) == GLFW_PRESS;
     }
 }
