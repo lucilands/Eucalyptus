@@ -4,6 +4,7 @@
 #include <map>
 #include <string>
 
+#include "../math/vector2.h"
 #include "keycodes.h"
 
 
@@ -11,11 +12,14 @@ namespace Eucalyptus {
     class InputDispatcher {
         public:
             InputDispatcher() {}
+
             static void _glfw_key_callback(GLFWwindow* win, int key, int scancode, int action, int mods);
             
             bool IsKeyPressed(Input::KeyCode code);
             bool IsKeyHeld(Input::KeyCode code);
             bool IsKeyReleased(Input::KeyCode code);
+
+            Vector2f GetMousePosition();
 
             int last_key = 0;
             int last_action = 0;

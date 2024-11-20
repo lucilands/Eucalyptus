@@ -39,4 +39,10 @@ namespace Eucalyptus {
     bool InputDispatcher::IsKeyHeld(Input::KeyCode code) {
         return glfwGetKey((GLFWwindow*)Eucalyptus::window->__get_gl(), static_cast<int>(code)) == GLFW_PRESS;
     }
+
+    Vector2f InputDispatcher::GetMousePosition() {
+        double x, y;
+        glfwGetCursorPos((GLFWwindow*)Eucalyptus::window->__get_gl(), &x, &y);
+        return (Vector2f) {static_cast<float>(x), static_cast<float>(y)};
+    }
 }
