@@ -10,8 +10,7 @@
 namespace Eucalyptus {
     class InputDispatcher {
         public:
-            InputDispatcher(GLFWwindow** window) : m_window(window) {}
-            InputDispatcher(void** window) : m_window((GLFWwindow**)window) {}
+            InputDispatcher() {}
             static void _glfw_key_callback(GLFWwindow* win, int key, int scancode, int action, int mods);
             
             bool IsKeyPressed(Input::KeyCode code);
@@ -60,8 +59,5 @@ namespace Eucalyptus {
                 {'9', false},
                 {'0', false}
             };
-
-        private:
-            GLFWwindow **m_window;
     };
 }

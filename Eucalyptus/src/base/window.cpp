@@ -16,7 +16,7 @@ void __framebuffer_size_callback(GLFWwindow* window, int width, int height) {
 
 Eucalyptus::Window *Eucalyptus::window = NULL;
 namespace Eucalyptus {
-    Window::Window(Vector2u size, const char *title) : size(size), delta_time(0.0f), input(&m_window) {
+    Window::Window(Vector2u size, const char *title) : size(size), delta_time(0.0f) {
         if (Eucalyptus::window != NULL) {
             clog(CLOG_FATAL, "You can only have one window open at a time!");
             Terminate();
@@ -39,7 +39,7 @@ namespace Eucalyptus {
         m_initializeWindow();
     }
 
-    Window::Window(unsigned int width, unsigned int height, const char *title) : size({width, height}), delta_time(0.0f), input(&m_window) {
+    Window::Window(unsigned int width, unsigned int height, const char *title) : size({width, height}), delta_time(0.0f) {
         if (Eucalyptus::window != NULL) {
             clog(CLOG_FATAL, "You can only have one window open at a time!");
             Terminate();

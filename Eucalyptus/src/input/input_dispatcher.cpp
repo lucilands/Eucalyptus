@@ -1,4 +1,5 @@
 #include <Eucalyptus/input/input_dispatcher.h>
+#include <Eucalyptus/window.h>
 
 #include <GLFW/glfw3.h>
 #include <stdio.h>
@@ -36,6 +37,6 @@ namespace Eucalyptus {
     }
 
     bool InputDispatcher::IsKeyHeld(Input::KeyCode code) {
-        return glfwGetKey(*m_window, static_cast<int>(code)) == GLFW_PRESS;
+        return glfwGetKey((GLFWwindow*)Eucalyptus::window->__get_gl(), static_cast<int>(code)) == GLFW_PRESS;
     }
 }
