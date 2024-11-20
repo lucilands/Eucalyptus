@@ -117,4 +117,8 @@ namespace Eucalyptus {
         glClearColor(col.r, col.g, col.b, col.a);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     }
+
+    void Window::Close() {
+        glfwSetWindowShouldClose((GLFWwindow*)m_window, true);
+    }
 }

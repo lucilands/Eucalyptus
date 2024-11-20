@@ -25,6 +25,7 @@ namespace Eucalyptus {
             bool IsRunning();
             void Update();
             void Clear(Color col);
+            void Close();
             static float GetDeltaTime() {return Eucalyptus::window->delta_time;}
         private:
             void m_initializeWindow();
