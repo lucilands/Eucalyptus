@@ -2,11 +2,11 @@
 #include <Eucalyptus/ecs/object.h>
 
 #include <Eucalyptus/components/model_renderer.h>
+#include <Eucalyptus/window.h>
 
 
 namespace Eucalyptus {
     void Scene::Awake() {
-        m_camera.res = {1080.0f, 720.0f};
         for (Object *o : m_objects) {
             o->Awake();
         }
@@ -14,6 +14,7 @@ namespace Eucalyptus {
 
     void Scene::Update() {
         m_camera.Update();
+        m_camera.res = {static_cast<float>(Eucalyptus::window->size.x), static_cast<float>(Eucalyptus::window->size.y)};
         for (Object *o : m_objects) {
             if (o->enabled) o->Update();
             if (o->HasComponent<ModelRenderer>()) {

@@ -12,7 +12,8 @@
 
 void __framebuffer_size_callback(GLFWwindow* window, int width, int height) {
     glViewport(0, 0, width, height);
-}  
+    Eucalyptus::window->size = {static_cast<unsigned int>(width), static_cast<unsigned int>(height)};
+}
 
 Eucalyptus::Window *Eucalyptus::window = NULL;
 namespace Eucalyptus {
@@ -65,7 +66,8 @@ namespace Eucalyptus {
     void Window::m_initializeWindow() {
         glfwMakeContextCurrent((GLFWwindow*)m_window);
         clog(CLOG_TRACE, "Made window to current context");
-        glfwSetFramebufferSizeCallback((GLFWwindow*)m_window, __framebuffer_size_callback);  
+
+        glfwSetFramebufferSizeCallback((GLFWwindow*)m_window, __framebuffer_size_callback);
 
         if (!gladLoadGLLoader((GLADloadproc)glfwGetProcAddress)) {
             clog(CLOG_FATAL, "Failed to initialize GLAD. Check logs for more details.");
