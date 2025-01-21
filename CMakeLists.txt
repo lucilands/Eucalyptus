@@ -4,6 +4,8 @@ project(Sandbox)
 add_subdirectory(Eucalyptus)
 
 set(CMAKE_RUNTIME_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/build/bin)
+set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY ${CMAKE_SOURCE_DIR}/build/bin)
+
 
 add_executable(Sandbox sandbox.cpp)
 
