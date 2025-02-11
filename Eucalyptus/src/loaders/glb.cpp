@@ -196,6 +196,6 @@ namespace Eucalyptus {
             for (GLBChunk c : chunks) FreeChunk(c);
             return Mesh(vertices, indices);
         }
-        return Mesh({{0.0f, 0.0f, 0.0f}, {0.0f, 0.0f}});
+        return Mesh({{Vector3f(0.0f, 0.0f, 0.0f), Vector2f(0.0f, 0.0f), Vector3f(0.0f, 0.0f, 0.0f)}});
     }
 }
