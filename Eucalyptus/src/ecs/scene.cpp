@@ -6,6 +6,12 @@
 
 
 namespace Eucalyptus {
+    Scene *default_scene = nullptr;
+
+    Scene::Scene() {
+        default_scene = this;
+    }
+
     void Scene::Awake() {
         for (Object *o : m_objects) {
             o->Awake();

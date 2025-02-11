@@ -46,10 +46,6 @@ int main() {
     sphere.AddComponent<Rotate>(rotation_speed, (Eucalyptus::Vector3f) {1.0f, -1.0f, -1.0f});
     cube.AddComponent<Rotate>(rotation_speed, (Eucalyptus::Vector3f) {1.0f, 1.0f, -1.0f});
 
-    main_scene.AddObject(&monkey);
-    main_scene.AddObject(&sphere);
-    main_scene.AddObject(&cube);
-
     main_scene.GetCamera()->position = {0.0f, 0.0f, 10.0f};
 
     sphere.GetComponent<Eucalyptus::Transform>()->Translate({3.0f, 0.0f, 0.0f});

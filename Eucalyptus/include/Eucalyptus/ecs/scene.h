@@ -9,7 +9,7 @@
 namespace Eucalyptus {
     class Scene {
         public:
-            Scene() {}
+            Scene();
 
             void Awake();
             void Update();
@@ -21,4 +21,5 @@ namespace Eucalyptus {
             std::vector<Object*> m_objects;
             Camera m_camera;
     };
+    extern Scene *default_scene;
 }

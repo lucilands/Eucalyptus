@@ -11,10 +11,12 @@
 
 namespace Eucalyptus {
     class Component;
+    class Scene;
 
     class Object {
         public:
-            Object() {};
+            Object();
+            Object(Scene scene);
 
             void Update();
             void Awake();
