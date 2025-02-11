@@ -10,6 +10,8 @@ int main() {
     Eucalyptus::Scene main_scene = Eucalyptus::Scene();
 
     Eucalyptus::Panel panel = Eucalyptus::Panel(Eucalyptus::Vector2f(100, 100), Eucalyptus::Vector2f(1080/2 - 50, 720/2 - 50), 0, Eucalyptus::Colors::White);
+    panel.GetComponent<Eucalyptus::UI_Renderer>()->radius = 0.1f;
+
 
     while (window.IsRunning()) {
         window.Clear(Eucalyptus::Colors::LearnOpenGL);

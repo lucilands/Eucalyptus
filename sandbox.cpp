@@ -34,7 +34,7 @@ int main() {
     Eucalyptus::Material basic(basic_shader, Eucalyptus::Texture("assets/texture/brick.jpg"));
     Eucalyptus::Material basic_monkey(basic_shader, Eucalyptus::Texture("assets/texture/monkey.png"));
 
-    Eucalyptus::Panel panel = Eucalyptus::Panel(Eucalyptus::Vector2f(100, 100), Eucalyptus::Vector4f(1.0f, 1.0f, 1.0f, 0.5f));
+    Eucalyptus::Panel panel = Eucalyptus::Panel(Eucalyptus::Vector2f(400, 200), Eucalyptus::Vector2f(1080/2 - 200, 720/2 - 100), 0, Eucalyptus::Vector4f(1.0f, 1.0f, 1.0f, 0.5f));
 
     Eucalyptus::Model monkey_model(basic_monkey, Eucalyptus::LoadGLBmesh("assets/models/monkey.glb"));
     Eucalyptus::Model sphere_model(basic, Eucalyptus::LoadGLBmesh("assets/models/sphere.glb"));
