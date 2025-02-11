@@ -4,6 +4,8 @@
 
 namespace Eucalyptus {
     template <typename T> struct Vector3 {
+        public:
+            Vector3(T x, T y, T z) {this->x = x; this->y = y; this->z = z;}
             T x;
             T y;
             T z;
