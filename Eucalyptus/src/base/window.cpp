@@ -75,6 +75,8 @@ namespace Eucalyptus {
             exit(1);
         }
         glEnable(GL_DEPTH_TEST);
+        glEnable(GL_BLEND);
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
         //glfwSwapInterval(1);
         running = true;
         Eucalyptus::window = this;
@@ -115,8 +117,8 @@ namespace Eucalyptus {
         time = glfwGetTime();
     }
 
-    void Window::Clear(Color col) {
-        glClearColor(col.r, col.g, col.b, col.a);
+    void Window::Clear(Vector4f col) {
+        glClearColor(col.x, col.y, col.z, col.w);
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
     }
 

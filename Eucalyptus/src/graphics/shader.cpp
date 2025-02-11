@@ -69,4 +69,8 @@ namespace Eucalyptus {
     void Shader::SetVec3(const char *name, const Vector3f val) {
         glUniform3f(glGetUniformLocation(m_ID, name), val.x, val.y, val.z);
     }
+
+    void Shader::SetVec4(const char *name, const Vector4f val) {
+        glUniform4f(glGetUniformLocation(m_ID, name), val.x, val.y, val.z, val.w);
+    }
 }

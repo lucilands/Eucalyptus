@@ -2,6 +2,7 @@
 
 #include "../vendor/glm/glm/glm.hpp"
 #include "Eucalyptus/math/vector3.h"
+#include "Eucalyptus/math/vector4.h"
 
 
 namespace Eucalyptus {
@@ -15,6 +16,7 @@ namespace Eucalyptus {
             void SetMat4(const char *name, const glm::mat4 mat4);
             void SetFloat(const char *name, const float val);
             void SetVec3(const char *name, const Vector3f val);
+            void SetVec4(const char *name, const Vector4f val);
 
         private:
             unsigned int m_ID;

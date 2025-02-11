@@ -1,6 +1,7 @@
 #pragma once
 
 #include "math/vector2.h"
+#include "math/vector4.h"
 #include "math/color.h"
 #include "input/input_dispatcher.h"
 #include "input/keycodes.h"
@@ -24,7 +25,7 @@ namespace Eucalyptus {
 
             bool IsRunning();
             void Update();
-            void Clear(Color col);
+            void Clear(Vector4f col);
             void Close();
             static float GetDeltaTime() {return Eucalyptus::window->delta_time;}
             

@@ -69,6 +69,9 @@ set(SRC_FILES "${SRCDIR}/clog.c"
 
               "${SRCDIR}/loaders/glb.cpp"
               "${SRCDIR}/loaders/freader.cpp"
+
+              "${SRCDIR}/ui/panel.cpp"
+              "${SRCDIR}/ui/ui_renderer.cpp"
 )
 
 #set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS}"-fno-PIE")

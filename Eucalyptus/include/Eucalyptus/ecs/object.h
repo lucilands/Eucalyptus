@@ -53,7 +53,7 @@ namespace Eucalyptus {
             void Toggle() {enabled = !enabled;}
 
             bool enabled = true;
-        private:
+        protected:
             std::vector<std::unique_ptr<Component>> m_components;
     };
 
