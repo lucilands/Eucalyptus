@@ -5,7 +5,8 @@
 namespace Eucalyptus {
     template <typename T> struct Vector3 {
         public:
-            Vector3(T x, T y, T z) {this->x = x; this->y = y; this->z = z;}
+            Vector3() {x = 0; y = 0; z = 0;}
+            Vector3(T X, T Y, T Z) {x = X; y = Y; z = Z;}
             T x;
             T y;
             T z;
@@ -20,6 +21,6 @@ namespace Eucalyptus {
     }
 
     template <typename T> Vector3<T> vec3_fromGLM(glm::vec3 v) {
-            return  {v.x, v.y, v.z};
+            return Vector3(v.x, v.y, v.z);
     }
 }
