@@ -10,7 +10,7 @@ uniform float radius;
 
 void main() 
 {
-    if (radius == 0.0) {
+    if (radius <= 0.01) {
         FragColor = color;
         return;
     }

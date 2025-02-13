@@ -73,6 +73,7 @@ set(SRC_FILES "${SRCDIR}/clog.c"
               "${SRCDIR}/loaders/freader.cpp"
               
               "${SRCDIR}/ui/panel.cpp"
+              "${SRCDIR}/ui/button.cpp"
               "${SRCDIR}/ui/ui_renderer.cpp"
 )
               

@@ -21,4 +21,5 @@
 #include "Eucalyptus/input/keycodes.h"
 
 #include "Eucalyptus/ui/panel.h"
+#include "Eucalyptus/ui/button.h"
 #include "Eucalyptus/ui/ui_renderer.h"

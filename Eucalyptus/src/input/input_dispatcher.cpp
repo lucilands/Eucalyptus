@@ -45,4 +45,14 @@ namespace Eucalyptus {
         glfwGetCursorPos((GLFWwindow*)Eucalyptus::window->__get_gl(), &x, &y);
         return (Vector2f) {static_cast<float>(x), static_cast<float>(y)};
     }
+
+    bool InputDispatcher::IsMousePressed() {
+        int newState = glfwGetMouseButton((GLFWwindow*)Eucalyptus::window->__get_gl(), GLFW_MOUSE_BUTTON_LEFT);
+        if (newState == GLFW_RELEASE && this->__mouse_oldState == GLFW_PRESS) {
+            this->__mouse_oldState = newState;
+            return true;
+        }
+        this->__mouse_oldState = newState;
+        return false;
+    }
 }

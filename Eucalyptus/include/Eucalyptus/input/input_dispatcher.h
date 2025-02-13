@@ -20,9 +20,11 @@ namespace Eucalyptus {
             bool IsKeyReleased(Input::KeyCode code);
 
             Vector2f GetMousePosition();
+            bool IsMousePressed();
 
             int last_key = 0;
             int last_action = 0;
+            int __mouse_oldState = 0;
 
             std::map<char, bool> held_keys = {
                 {'a', false},
