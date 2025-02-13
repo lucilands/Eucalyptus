@@ -10,7 +10,11 @@ uniform float radius;
 
 void main() 
 {
-    float m_radius = radius * length(size);
+    if (radius == 0.0) {
+        FragColor = color;
+        return;
+    }
+    float m_radius = radius * length(size) / 3;
     // Calculate pixel position relative to the rectangle's center
     vec2 pixelPos = tex_coord * size;
     vec2 halfSize = size * 0.5;
