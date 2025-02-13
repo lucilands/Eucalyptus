@@ -11,49 +11,7 @@
 #include <glm/glm.hpp>
 #include <glm/gtc/matrix_transform.hpp>
 
-
-
-const char *frag_src = ""
-"#version 450 core\n"
-
-"out vec4 FragColor;"
-
-"in vec2 tex_coord;"
-
-"uniform vec2 size;"
-"uniform vec4 color;"
-"uniform float radius;"
-
-"void main() {"
-"    vec2 p = fragPos.xy / resolution;"
-    
-    // Translate the coordinates to be centered on the screen (or adjust as needed)
-"    vec2 halfSize = vec2(size.x, size.y) * 0.5 / resolution;"
-"    vec2 d = abs(p - 0.5) - halfSize;"
-"    float inside = 1.0;"
-"    inside *= step(d.x, 0.0) * step(d.y, 0.0);"
-"    float corner = max(d.x, d.y);"
-"    inside *= step(corner, radius);"
-"    if (inside > 0.5) {"
-"        FragColor = vec4(1.0, 0.0, 0.0, 1.0);"
-"    } else {"
-"        FragColor = vec4(0.0, 0.0, 0.0, 1.0);"
-"    }"
-"}";
-
-const char *vert_src = ""
-"#version 450 core\n"
-"layout (location = 0) in vec4 vertex;"
-
-"uniform mat4 model;"
-"uniform mat4 projection;" // Should be an orthographic projection
-
-"out vec2 tex_coord;"
-
-"void main() {"
-"   gl_Position = projection * model * vec4(vertex.xy, 0.0, 1.0);"
-"   tex_coord = vertex.zw;"
-"}";
+#include "ui_shaders.h"
 
 
 
@@ -104,6 +62,7 @@ namespace Eucalyptus {
         m_shader.SetMat4("projection", m_projection);
         m_shader.SetVec4("color", this->color);
         m_shader.SetVec2("resolution", Vector2f(Eucalyptus::window->size.x, Eucalyptus::window->size.y));
+        m_shader.SetVec2("size", t->size);
         m_shader.SetFloat("radius", this->radius);
 
         glBindVertexArray(m_VAO);

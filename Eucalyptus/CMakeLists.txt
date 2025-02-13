@@ -42,6 +42,8 @@ message(STATUS "Eucalyptus: Fetched and configured Nlohmann Json")
 
 endif()
 
+
+
 add_subdirectory("${CMAKE_CURRENT_SOURCE_DIR}/vendor/glm/")
 
 set(GLADDIR "${CMAKE_CURRENT_SOURCE_DIR}/vendor/glad/")
@@ -59,21 +61,26 @@ set(SRC_FILES "${SRCDIR}/clog.c"
               
               "${SRCDIR}/base/init.cpp" 
               "${SRCDIR}/base/window.cpp"
-
+              
               "${SRCDIR}/components/model_renderer.cpp"
               "${SRCDIR}/components/transform.cpp"
               
               "${SRCDIR}/graphics/camera.cpp"
               "${SRCDIR}/graphics/shader.cpp"
               "${SRCDIR}/graphics/texture.cpp"
-
+              
               "${SRCDIR}/loaders/glb.cpp"
               "${SRCDIR}/loaders/freader.cpp"
-
+              
               "${SRCDIR}/ui/panel.cpp"
               "${SRCDIR}/ui/ui_renderer.cpp"
 )
+              
+message(STATUS "Eucalyptus: Configuring shader strings in Eucalyptus/ui/ui_shaders.h")
+file(READ "${SRCDIR}/ui/ui_panel.frag" FRAG_CONTENT)
+file(READ "${SRCDIR}/ui/ui_panel.vert" VERT_CONTENT)
 
+configure_file("${SRCDIR}/ui/ui_shaders.h.in" "${SRCDIR}/ui/ui_shaders.h" @ONLY)
 #set(CMAKE_CXX_FLAGS ${CMAKE_CXX_FLAGS}"-fno-PIE")
 
 add_library(Eucalyptus STATIC ${SRC_FILES})

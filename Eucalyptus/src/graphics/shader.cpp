@@ -63,6 +63,7 @@ namespace Eucalyptus {
     }
 
     void Shader::SetFloat(const char *name, const float val) {
+        //clog(CLOG_TRACE, "Shader::SetFloat(\"%s\", %f);", name, val);
         glUniform1f(glGetUniformLocation(m_ID, name), val);
     }
 
@@ -75,6 +76,7 @@ namespace Eucalyptus {
     }
 
     void Shader::SetVec2(const char *name, const Vector2f val) {
+        //clog(CLOG_TRACE, "Shader::SetVec2(\"%s\", (Vector2f) {%f, %f});", name, val.x, val.y);
         glUniform2f(glGetUniformLocation(m_ID, name), val.x, val.y);
     }
 }

@@ -1,0 +1,2 @@
+const char *frag_src = R"(@FRAG_CONTENT@)"; // Will be replaced by CMake during configure
+const char *vert_src = R"(@VERT_CONTENT@)"; // Will be replaced my CMake during configure
