@@ -1,4 +1,5 @@
 # Eucalyptus
+THIS BRANCH IS NOT BEING MAINTAINED ANYMORE!
 
 A OpenGL based renderer for c++
 
